@@ -55,51 +55,72 @@ def preprocess_data(vitals_list):
 
 def generate_clinical_prompt(vitals_row, epro_text):
     """
-    Fungsi untuk menggabungkan data vital dan narasi pasien menjadi prompt klinis.
-    Menyertakan kriteria SIRS dan qSOFA sebagai referensi medis untuk Gemini.
+    Fungsi untuk menggabungkan data vital dan narasi pasien menjadi prompt klinis
+    sesuai dengan template yang telah ditentukan.
     """
+    # Menentukan trend sederhana berdasarkan data dummy (bisa dikembangkan lebih lanjut)
+    hr_trend = "Increasing" if vitals_row['hr'] > 100 else "Stable"
+    spo2_trend = "Decreasing" if vitals_row['spo2'] < 95 else "Stable"
+
     prompt = f"""
-    Anda adalah seorang AI Researcher di bidang Healthcare yang ahli dalam deteksi dini sepsis.
-    Analisis data pasien onkologi berikut untuk mendeteksi risiko sepsis.
+    Sepsis Risk Analysis Request:
+    -----------------------------
+    [INPUT DATA]
+    - Time-Series Trends (Last 6 Hours):
+      * Heart Rate: {hr_trend} (Avg: {vitals_row['hr']} bpm)
+      * SpO2: {spo2_trend} (Min: {vitals_row['spo2']}%)
+      * Temperature: {vitals_row['temp']}°C
+      * Respiratory Rate: {vitals_row['rr']} breaths/min
 
-    DATA VITAL PASIEN:
-    - Heart Rate (HR): {vitals_row['hr']} bpm (Normalized: {vitals_row['hr_normalized']:.2f})
-    - SpO2: {vitals_row['spo2']}% (Normalized: {vitals_row['spo2_normalized']:.2f})
-    - Temperature: {vitals_row['temp']}°C (Normalized: {vitals_row['temp_normalized']:.2f})
-    - Respiratory Rate (RR): {vitals_row['rr']} bpm (Normalized: {vitals_row['rr_normalized']:.2f})
+    - Patient-Reported Outcomes (ePRO):
+      * Subjective Complaints: "{epro_text}"
+      * Reported At: 10:00 AM (Fixed Dummy Time)
 
-    DATA ePRO (Keluhan Pasien):
-    "{epro_text}"
+    [TASK]
+    1. Correlate the vital sign trends with the ePRO narrative.
+    2. Evaluate if the subjective "shivering" or "confusion" matches the physiological data.
+    3. Provide a risk score (0-100).
 
-    REFERENSI KRITERIA KLINIS:
-    1. SIRS (Systemic Inflammatory Response Syndrome):
-       - HR > 90 bpm
-       - Temp > 38°C atau < 36°C
-       - RR > 20 bpm
-    2. qSOFA (Quick SOFA):
-       - RR >= 22 bpm
-       - Perubahan status mental (analisis dari data ePRO)
-       - Tekanan darah sistolik <= 100 mmHg (jika tidak ada data, asumsikan berdasarkan keluhan lain)
-
-    TUGAS ANDA:
-    Lakukan analisis mendalam terhadap data tersebut. Pasien onkologi memiliki risiko tinggi karena kondisi imunokompromais.
-    Berikan output dalam format JSON yang valid dengan kunci sebagai berikut:
-    - status_sepsis: boolean (True jika risiko tinggi/ada indikasi sepsis, False jika tidak)
-    - skor_risiko: integer (skala 0-100)
-    - rasionalisasi_medis: string (penjelasan singkat mengapa Anda mengambil keputusan tersebut berdasarkan kriteria klinis)
-
-    PENTING: Hanya berikan output dalam format JSON.
+    [REQUIRED JSON STRUCTURE]
+    {{
+      "risk_score": float,
+      "risk_level": "Low/Medium/High",
+      "clinical_indicators": ["list findings"],
+      "reasoning": "Detailed explanation using medical terminology",
+      "is_emergency": boolean
+    }}
     """
     return prompt
 
 def detect_sepsis(prompt):
     """
     Fungsi untuk memanggil Gemini API dan mendapatkan hasil deteksi sepsis.
-    Menggunakan model gemini-1.5-flash untuk efisiensi.
+    Menggunakan model gemini-2.0-flash untuk kapabilitas terbaru.
     """
     try:
-        # Inisialisasi model
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        # Instruksi Sistem (System Instruction) untuk Gemini
+        system_instruction = """
+        ROLE:
+        Senior Clinical AI Researcher specializing in Oncology and Sepsis Early Warning Systems.
+
+        OBJECTIVE:
+        Analyze multimodal data (Numerical Vital Signs & Patient-Reported Outcomes) to predict the risk of sepsis. Your goal is to provide a "Risk Score" and clinical reasoning that bridges the gap between raw sensor data and subjective patient feelings.
+
+        KNOWLEDGE BASE:
+        1. SIRS Criteria (Temp >38C or <36C, HR >90, RR >20).
+        2. qSOFA Criteria (Altered mental status, Systolic BP <=100, RR >=22).
+        3. Oncology Context: Distinguish between neutropenic fever and septic shock.
+
+        OUTPUT SPECIFICATION:
+        You must ALWAYS respond in valid JSON format so the Python application can parse your analysis.
+        """
+
+        # Inisialisasi model dengan instruksi sistem
+        # Menggunakan gemini-2.0-flash sesuai instruksi user terbaru
+        model = genai.GenerativeModel(
+            'gemini-2.0-flash',
+            system_instruction=system_instruction
+        )
 
         # Memanggil API Gemini
         response = model.generate_content(
@@ -107,7 +128,7 @@ def detect_sepsis(prompt):
             generation_config={"response_mime_type": "application/json"}
         )
 
-        # Mengambil teks respon dan membersihkannya jika perlu (biasanya sudah bersih dengan response_mime_type)
+        # Mengambil teks respon
         result_text = response.text.strip()
 
         # Parsing JSON
@@ -115,41 +136,80 @@ def detect_sepsis(prompt):
         return result_json
 
     except Exception as e:
+        # Penanganan error (Quota, API Failure, dll)
+        error_msg = str(e)
+        if "quota" in error_msg.lower():
+            error_msg = "API Quota exceeded. Please try again later."
+        elif "api key" in error_msg.lower():
+            error_msg = "Invalid API Key."
+
         return {
-            "error": str(e),
-            "status_sepsis": None,
-            "skor_risiko": 0,
-            "rasionalisasi_medis": "Gagal mendapatkan respons dari API."
+            "error": error_msg,
+            "risk_score": 0,
+            "risk_level": "Unknown",
+            "clinical_indicators": [],
+            "reasoning": f"Gagal mendapatkan respons dari API: {error_msg}",
+            "is_emergency": False
         }
+
+def analyze_sepsis(vital_data, epro_text):
+    """
+    Fungsi multimodal untuk menyusun prompt dan memanggil deteksi.
+    """
+    # Menentukan trend sederhana
+    hr_avg = vital_data.get('hr_avg', 0)
+    hr_trend = vital_data.get('hr_trend', 'stable')
+    temp = vital_data.get('temp', 0)
+
+    # Membuat prompt (menggunakan template yang diminta)
+    prompt = f"""
+    Sepsis Risk Analysis Request:
+    -----------------------------
+    [INPUT DATA]
+    - Vital Data:
+      * Heart Rate Avg: {hr_avg} bpm (Trend: {hr_trend})
+      * Temperature: {temp}°C
+
+    - Patient-Reported Outcomes (ePRO):
+      * Subjective Complaints: "{epro_text}"
+
+    [TASK]
+    Analyze the risk of sepsis based on the provided multimodal data.
+
+    [REQUIRED JSON STRUCTURE]
+    {{
+      "risk_score": float,
+      "risk_level": "Low/Medium/High",
+      "clinical_indicators": ["list findings"],
+      "reasoning": "Detailed explanation using medical terminology",
+      "is_emergency": boolean
+    }}
+    """
+    return detect_sepsis(prompt)
 
 if __name__ == "__main__":
     print("="*60)
-    print("SISTEM DETEKSI DINI SEPSIS - PASIEN ONKOLOGI (Gemini AI)")
+    print("SISTEM DETEKSI DINI SEPSIS - GEMINI 2.0 FLASH")
     print("="*60)
 
-    # 1. Pra-pemrosesan Data
-    df_vitals = preprocess_data(dummy_data)
+    # Contoh penggunaan fungsi analyze_sepsis sesuai instruksi terbaru
+    sample_vitals = {'hr_avg': 105, 'hr_trend': 'upward', 'temp': 38.5}
+    sample_epro = "Saya merasa sangat menggigil"
 
-    # 2. Iterasi setiap pasien untuk deteksi
-    for index, row in df_vitals.iterrows():
-        print(f"\nMenganalisis Pasien ID: {row['patient_id']}...")
+    print("\nMenganalisis data pasien...")
+    result = analyze_sepsis(sample_vitals, sample_epro)
 
-        # Generasi Prompt
-        prompt = generate_clinical_prompt(row, row['epro'])
-
-        # Deteksi Sepsis menggunakan Gemini
-        result = detect_sepsis(prompt)
-
-        # 3. Menampilkan Output secara Rapi
-        print("-" * 40)
-        if "error" in result and result["status_sepsis"] is None:
-            print(f"STATUS: ERROR")
-            print(f"Pesan: {result['error']}")
-        else:
-            status_str = "RISIKO SEPSIS TERDETEKSI" if result.get('status_sepsis') else "RISIKO RENDAH"
-            print(f"STATUS SEPSIS     : {status_str}")
-            print(f"SKOR RISIKO (0-100): {result.get('skor_risiko')}")
-            print(f"RASIONALISASI MEDIS: {result.get('rasionalisasi_medis')}")
-        print("-" * 40)
+    # Menampilkan hasil
+    print("-" * 40)
+    if "error" in result and result["risk_level"] == "Unknown":
+        print(f"STATUS: ERROR")
+        print(f"Pesan: {result['error']}")
+    else:
+        print(f"LEVEL RISIKO   : {result.get('risk_level')}")
+        print(f"SKOR RISIKO    : {result.get('risk_score')}")
+        print(f"EMERGENCY      : {result.get('is_emergency')}")
+        print(f"INDIKATOR      : {', '.join(result.get('clinical_indicators', []))}")
+        print(f"REASONING      : {result.get('reasoning')}")
+    print("-" * 40)
 
     print("\nAnalisis selesai.")
