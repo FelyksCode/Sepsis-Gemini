@@ -34,11 +34,11 @@ def inject_epro_feedback(row):
     Menghasilkan narasi keluhan pasien berdasarkan kondisi klinis dalam jendela waktu.
     """
     complaints = []
-    if row['HR_mean'] > 100:
+    if row['HR_Mean'] > 100:
         complaints.append("Jantung berdebar")
-    if row['Temp_max'] > 38:
+    if row['Temp_Max'] > 38:
         complaints.append("Merasa menggigil")
-    if row['O2Sat_mean'] < 94:
+    if row['O2Sat_Min'] < 94:
         complaints.append("Sesak napas")
 
     return ". ".join(complaints) + "." if complaints else "Saya merasa baik-baik saja."
@@ -56,6 +56,7 @@ def calculate_slope(series):
 def process_vitals_to_window(filepath):
     """
     Melakukan preprocessing: cleaning, windowing 6 jam, dan agregasi statistik.
+    Output disesuaikan dengan key yang dibutuhkan oleh sepsis_detector.
     """
     df = pd.read_csv(filepath)
     vitals = ['HR', 'O2Sat', 'Temp', 'Resp']
@@ -69,20 +70,25 @@ def process_vitals_to_window(filepath):
     # 3. Aggregation
     grouped = df.groupby(['Patient_ID', 'Window_ID'])
 
-    # Hitung Mean, Trend, dan Max
-    df_mean = grouped[vitals].mean().add_suffix('_mean')
-    # Gunakan transform/agg untuk memastikan setiap kolom memiliki trennya sendiri
-    df_trend = grouped[vitals].agg(calculate_slope).add_suffix('_trend')
-    df_max = grouped['Temp'].max().rename('Temp_max')
+    # Hitung Statistik (Mean, Trend, Max, Min)
+    df_mean = grouped[['HR', 'Resp']].mean()
+    df_mean.columns = ['HR_Mean', 'Resp_Mean']
+
+    df_trend = grouped['HR'].agg(calculate_slope).rename('HR_Trend')
+    # Konversi slope numerik ke teks tren sederhana
+    df_trend = df_trend.apply(lambda x: "Meningkat" if x > 0.1 else ("Menurun" if x < -0.1 else "Stabil"))
+
+    df_temp_max = grouped['Temp'].max().rename('Temp_Max')
+    df_o2_min = grouped['O2Sat'].min().rename('O2Sat_Min')
 
     # Ambil SepsisLabel (Ground Truth) terakhir dalam jendela tersebut
     df_label = grouped['SepsisLabel'].last()
 
     # Gabungkan hasil
-    processed_df = pd.concat([df_mean, df_trend, df_max, df_label], axis=1).reset_index()
+    processed_df = pd.concat([df_mean, df_trend, df_temp_max, df_o2_min, df_label], axis=1).reset_index()
 
     # 4. Multimodal: Inject ePRO Feedback
-    processed_df['epro_feedback'] = processed_df.apply(inject_epro_feedback, axis=1)
+    processed_df['ePRO_Text'] = processed_df.apply(inject_epro_feedback, axis=1)
 
     return processed_df
 
@@ -100,5 +106,5 @@ if __name__ == "__main__":
     final_df.to_csv(output_filename, index=False)
 
     print(f"\nHasil preprocessing (3 baris pertama):\n")
-    print(final_df[['Patient_ID', 'Window_ID', 'HR_mean', 'epro_feedback']].head(3).to_string(index=False))
+    print(final_df[['Patient_ID', 'Window_ID', 'HR_Mean', 'ePRO_Text']].head(3).to_string(index=False))
     print(f"\nFile output disimpan ke: {output_filename}")
