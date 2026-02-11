@@ -9,7 +9,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def get_sepsis_model():
     """
-    Inisialisasi model Gemini 2.0 Flash dengan instruksi sistem medis.
+    Inisialisasi model Gemini 2.5 Flash dengan instruksi sistem medis.
     """
     system_instruction = """
     ROLE:
@@ -27,8 +27,9 @@ def get_sepsis_model():
     ALWAYS respond in valid JSON format.
     """
 
+    # Menggunakan gemini-2.5-flash sesuai instruksi user terbaru
     return genai.GenerativeModel(
-        'gemini-2.0-flash',
+        'gemini-2.5-flash',
         system_instruction=system_instruction
     )
 
@@ -66,7 +67,7 @@ def analyze_sepsis_risk(vital_summary, epro_text):
 
 if __name__ == "__main__":
     print("="*60)
-    print("GEMINI 2.0 FLASH - SEPSIS DETECTION PROMPTER")
+    print("GEMINI 2.5 FLASH - SEPSIS DETECTION PROMPTER")
     print("="*60)
 
     # Contoh data input
