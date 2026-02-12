@@ -7,61 +7,41 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Definisi System Prompt sesuai spesifikasi terbaru
-SYSTEM_PROMPT = """
-Anda adalah Asisten AI Medis Spesialis Sepsis (CDSS).
-Tugas Anda:
-1. Analisis risiko sepsis dari data vital (tren 6 jam) dan keluhan ePRO.
-2. Berikan PREDIKSI risiko (0-100%).
-3. Berikan ALASAN (Reasoning) berbasis medis (hubungkan data vital & teks).
-4. Berikan SOLUSI KLINIS (Recommendations) berdasarkan tingkat risiko:
-   - Jika Risiko TINGGI (>80%): Sarankan protokol 'Sepsis Hour-1 Bundle' (e.g., Ambil kultur darah, Pasang IV line, Konsul Dokter segera).
-   - Jika Risiko SEDANG (50-80%): Sarankan observasi ketat, cek ulang laktat/vital dalam 1 jam.
-   - Jika Risiko RENDAH (<50%): Sarankan monitoring rutin.
-
-Output HARUS dalam format JSON yang valid.
-"""
-
 def get_sepsis_model():
     """
-    Inisialisasi model Gemini 2.5 Flash dengan instruksi sistem medis.
+    Inisialisasi model Gemini 2.5 Flash dengan instruksi sistem medis ICU.
     """
     # Menggunakan gemini-2.5-flash sesuai instruksi user terbaru
-    return genai.GenerativeModel(
-        'gemini-2.5-flash',
-        system_instruction=SYSTEM_PROMPT
-    )
+    return genai.GenerativeModel('gemini-2.5-flash')
 
 def analyze_sepsis_risk(row):
     """
     Mengirim prompt multimodal ke Gemini API untuk deteksi sepsis berdasarkan baris data pasien.
+    Menggunakan konteks ICU dan Lama Rawat (LOS).
     """
     model = get_sepsis_model()
 
     prompt = f"""
-    DATA PASIEN (Window 6 Jam):
-    - Heart Rate: Rata-rata {row['HR_Mean']} bpm (Tren: {row['HR_Trend']})
-    - Suhu Maksimal: {row['Temp_Max']} C
-    - O2 Saturation Min: {row['O2Sat_Min']} %
-    - Respirasi Rata-rata: {row['Resp_Mean']} bpm
+    ROLE: Anda adalah Dokter Spesialis ICU (Intensive Care Unit).
 
-    LAPORAN PASIEN (ePRO):
-    "{row['ePRO_Text']}"
+    KONTEKS WAKTU PASIEN:
+    - Total Lama Perawatan (LOS): {row['Hour_Last']} Jam.
+    - Status: Ini adalah perawatan HARI KE-{row['Day_Of_Stay']}.
 
-    TUGAS:
-    Analisis pasien ini.
+    DATA OBSERVASI (Jendela 6 Jam Terakhir):
+    1. Tren Heart Rate: {row['HR_Delta']:+.1f} bpm (Dari {row['HR_First']} menjadi {row['HR_Last']}).
+    2. Suhu Tubuh Saat Ini: {row['Temp_Last']}°C.
+    3. Keluhan Pasien (ePRO): "{row['ePRO_Text']}"
 
-    FORMAT JSON OUTPUT:
+    TUGAS ANALISIS:
+    Apakah pasien ini menunjukkan tanda-tanda awal Sepsis?
+    Perhatikan bahwa pasien yang dirawat lebih dari 48 jam (Hari ke-3+) memiliki risiko tinggi Infeksi Nosokomial jika terjadi perubahan tanda vital mendadak.
+
+    OUTPUT (JSON):
     {{
-        "prediction_score": (integer 0-100),
-        "is_sepsis": (true/false),
-        "risk_level": "(Low/Medium/High)",
-        "reasoning": "(Penjelasan medis singkat max 2 kalimat)",
-        "recommendations": [
-            "Langkah 1",
-            "Langkah 2",
-            "Langkah 3"
-        ]
+      "risk_level": "Low/Medium/High",
+      "reasoning": "Jelaskan alasan medis dengan mengaitkan lama perawatan dan gejala terkini.",
+      "recommendation": "Tindakan medis singkat."
     }}
     """
 
@@ -74,27 +54,26 @@ def analyze_sepsis_risk(row):
     except Exception as e:
         print(f"Error pada Pasien {row.get('Patient_ID', 'Unknown')}: {e}")
         return {
-            "prediction_score": 0,
-            "is_sepsis": False,
             "risk_level": "Error",
             "reasoning": f"Gagal memproses API: {str(e)}",
-            "recommendations": ["Periksa koneksi sistem"]
+            "recommendation": "Periksa koneksi sistem"
         }
 
 if __name__ == "__main__":
     print("="*60)
-    print("GEMINI 2.5 FLASH - SEPSIS DETECTION PROMPTER (CDSS)")
+    print("ICU SPECIALIST - SEPSIS DETECTION PROMPTER")
     print("="*60)
 
-    # Contoh data input (simulasi satu baris data pasien)
+    # Contoh data input (simulasi satu baris data pasien Hour 50)
     sample_row = {
         'Patient_ID': 'P001',
-        'HR_Mean': 105,
-        'HR_Trend': 'Meningkat',
-        'Temp_Max': 38.5,
-        'O2Sat_Min': 93,
-        'Resp_Mean': 22,
-        'ePRO_Text': 'Saya merasa sangat menggigil dan jantung berdebar.'
+        'Hour_Last': 50,
+        'Day_Of_Stay': 3,
+        'HR_First': 85,
+        'HR_Last': 110,
+        'HR_Delta': 25.0,
+        'Temp_Last': 38.9,
+        'ePRO_Text': 'Saya merasa menggigil hebat.'
     }
 
     print("\nMeminta analisis dari Gemini...")
@@ -102,14 +81,10 @@ if __name__ == "__main__":
 
     print("-" * 40)
     if result.get('risk_level') == "Error":
-        print(f"STATUS      : ERROR")
-        print(f"REASONING   : {result.get('reasoning')}")
+        print(f"STATUS          : ERROR")
+        print(f"REASONING       : {result.get('reasoning')}")
     else:
-        print(f"RISK LEVEL  : {result.get('risk_level')}")
-        print(f"SCORE       : {result.get('prediction_score')}%")
-        print(f"IS SEPSIS   : {result.get('is_sepsis')}")
-        print(f"REASONING   : {result.get('reasoning')}")
-        print(f"RECOMMENDATIONS:")
-        for rec in result.get('recommendations', []):
-            print(f"  - {rec}")
+        print(f"RISK LEVEL      : {result.get('risk_level')}")
+        print(f"REASONING       : {result.get('reasoning')}")
+        print(f"RECOMMENDATION  : {result.get('recommendation')}")
     print("-" * 40)
