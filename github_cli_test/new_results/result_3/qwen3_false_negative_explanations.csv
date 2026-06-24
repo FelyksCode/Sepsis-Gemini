@@ -1,0 +1,143 @@
+index,structured_data,xai_strict_translation,clinical_reasoning
+43,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 85.0, ""WBC"": 13500, ""SBP_Upon_presentation_ED"": 139, ""Hemoglobin"": 9.3, ""HTN"": 0, ""Sex_0"": true, ""CAD"": 0, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 36.9, ""IVfluids_requirement_first_24hrs"": 2.5, ""Bacteremic"": 1, ""DM"": 0, ""HeartRate_6hours"": 61.0, ""Respiratory_Rate_Upon_presentation_ED"": 24.0, ""Creatinine"": 3.2, ""DBP_Upon_presentation_ED"": 80, ""TemperatureT_6hours"": 36.9, ""RespiratoryRate_6hours"": 20.0, ""Sodium"": 123, ""Glucose"": NaN, ""SIRS_6hours"": 1.0, ""Phosphate"": 5.3, ""Calcium"": 9.1, ""Heart_Rate_Upon_presentation_ED"": 60, ""BodyUreaNitrogen"": 96.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 125.0, ""DBP_6hours"": 60.0, ""O2_saturation_Upon_presentation_ED"": 98}, ""prediction"": {""predicted_label"": 1, ""actual_label"": 1, ""probability_cancer"": 0.3523}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Glucose"", ""value"": NaN, ""shap"": 0.506281852722168, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Hemoglobin"", ""value"": 9.3, ""shap"": 0.3583237826824188, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Time_to_Antibiotic_treatment_initiation_hours"", ""value"": 125.0, ""shap"": 0.16066139936447144, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""CAD"", ""value"": 0, ""shap"": 0.07378940284252167, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""DM"", ""value"": 0, ""shap"": 0.06893515586853027, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""SBP_Upon_presentation_ED"", ""value"": 139, ""shap"": -0.7350866794586182, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.6046494841575623, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""WBC"", ""value"": 13500, ""shap"": -0.38557082414627075, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.9, ""shap"": -0.34598201513290405, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Heart_Rate_Upon_presentation_ED"", ""value"": 60, ""shap"": -0.20666830241680145, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi: 0.3523
+
+Fitur Pendorong (Positif):
+- Glucose: nilai=NaN, kontribusi SHAP=0.506281852722168
+- Hemoglobin: nilai=9.3, kontribusi SHAP=0.3583237826824188
+- Time_to_Antibiotic_treatment_initiation_hours: nilai=125.0, kontribusi SHAP=0.16066139936447144
+
+Fitur Penurun (Negatif):
+- SBP_Upon_presentation_ED: nilai=139, kontribusi SHAP=-0.7350866794586182
+- Ageyears: nilai=85.0, kontribusi SHAP=-0.6046494841575623
+- WBC: nilai=13500, kontribusi SHAP=-0.38557082414627075","Analisis Pola Model:  
+Model berpotensi menghasilkan prediksi dengan probabilitas 0.3523 berdasarkan kontribusi SHAP. Fitur Glukosa (NaN) berkontribusi positif terbesar (0.506), mungkin menunjukkan kepentingan data yang hilang. Hemoglobin 9.3 dan waktu penanganan antibiotik (125 jam) juga meningkatkan prediksi. Sementara itu, tekanan darah sistolik 139, usia 85 tahun, dan jumlah leukosit 13500 berkontribusi negatif yang signifikan.
+
+Interpretasi Klinis:  
+Kombinasi fitur ini mungkin berdampak pada keputusan model, di mana kehilangan data Glukosa, kadar hemoglobin 9.3, dan waktu penanganan antibiotik 125 jam berpotensi meningkatkan prediksi, sementara tekanan darah sistolik 139, usia 85 tahun, dan jumlah leukosit 13500 berpotensi mengurangi probabilitas."
+56,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 75.0, ""WBC"": 6200, ""SBP_Upon_presentation_ED"": 102, ""Hemoglobin"": 10.5, ""HTN"": 0, ""Sex_0"": true, ""CAD"": 0, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 37.4, ""IVfluids_requirement_first_24hrs"": 9.0, ""Bacteremic"": 1, ""DM"": 0, ""HeartRate_6hours"": 75.0, ""Respiratory_Rate_Upon_presentation_ED"": 22.0, ""Creatinine"": 0.5, ""DBP_Upon_presentation_ED"": 54, ""TemperatureT_6hours"": 35.6, ""RespiratoryRate_6hours"": 17.0, ""Sodium"": 132, ""Glucose"": 93.0, ""SIRS_6hours"": 1.0, ""Phosphate"": 3.2, ""Calcium"": 8.7, ""Heart_Rate_Upon_presentation_ED"": 115, ""BodyUreaNitrogen"": 13.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 1.0, ""DBP_6hours"": 45.0, ""O2_saturation_Upon_presentation_ED"": 94}, ""prediction"": {""predicted_label"": 1, ""actual_label"": 1, ""probability_cancer"": 0.4131}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Creatinine"", ""value"": 0.5, ""shap"": 0.44155165553092957, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""WBC"", ""value"": 6200, ""shap"": 0.36676496267318726, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""CAD"", ""value"": 0, ""shap"": 0.17069020867347717, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""RespiratoryRate_6hours"", ""value"": 17.0, ""shap"": 0.1415816843509674, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0, ""shap"": 0.12739503383636475, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""HeartRate_6hours"", ""value"": 75.0, ""shap"": -1.0151413679122925, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.490946888923645, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.4, ""shap"": -0.43050503730773926, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Hemoglobin"", ""value"": 10.5, ""shap"": -0.38264304399490356, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Sex_0"", ""value"": true, ""shap"": -0.2172488421201706, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi: 0.4131
+
+Fitur Pendorong (Positif):
+- Creatinine: nilai=0.5, kontribusi SHAP=0.44155165553092957
+- WBC: nilai=6200, kontribusi SHAP=0.36676496267318726
+- CAD: nilai=0, kontribusi SHAP=0.17069020867347717
+- RespiratoryRate_6hours: nilai=17.0, kontribusi SHAP=0.1415816843509674
+- CerebrovascularaccidentsCVA: nilai=0, kontribusi SHAP=0.12739503383636475
+
+Fitur Penurun (Negatif):
+- HeartRate_6hours: nilai=75.0, kontribusi SHAP=-1.0151413679122925
+- Ageyears: nilai=75.0, kontribusi SHAP=-0.490946888923645
+- Temperature_Upon_presentation_ED: nilai=37.4, kontribusi SHAP=-0.43050503730773926
+- Hemoglobin: nilai=10.5, kontribusi SHAP=-0.38264304399490356
+- Sex_0: nilai=true, kontribusi SHAP=-0.2172488421201706","Analisis Pola Model: The model's prediction probability (0.4131) may be influenced by elevated creatinine (0.5) and white blood cell count (6200), which can contribute positively. However, negative contributions from heart rate (75 bpm), age (75 years), temperature (37.4°C), hemoglobin (10.5 g/dL), and female sex (Sex_0) suggest that the decision is moderately supported by renal and inflammatory markers but counteracted by demographic and physiological factors.  
+
+Interpretasi Klinis: The positive contributions from creatinine and WBC may indicate underlying renal and inflammatory responses, while negative contributors such as age and hemoglobin levels could reduce the model's confidence. The net effect results in a potentially moderate probability of the predicted outcome.  
+
+Disclaimer: This analysis is based on model AI interpretation and not clinical diagnosis."
+58,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 1, ""Ageyears"": 90.0, ""WBC"": 19100, ""SBP_Upon_presentation_ED"": 120, ""Hemoglobin"": 12.9, ""HTN"": 1, ""Sex_0"": true, ""CAD"": 0, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 38.2, ""IVfluids_requirement_first_24hrs"": 4.5, ""Bacteremic"": 0, ""DM"": 0, ""HeartRate_6hours"": 92.0, ""Respiratory_Rate_Upon_presentation_ED"": 30.0, ""Creatinine"": 1.2, ""DBP_Upon_presentation_ED"": 69, ""TemperatureT_6hours"": 37.1, ""RespiratoryRate_6hours"": 25.0, ""Sodium"": 148, ""Glucose"": 198.0, ""SIRS_6hours"": 2.0, ""Phosphate"": 4.8, ""Calcium"": 9.0, ""Heart_Rate_Upon_presentation_ED"": 170, ""BodyUreaNitrogen"": 45.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 1.0, ""DBP_6hours"": 79.0, ""O2_saturation_Upon_presentation_ED"": 94}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.156}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Heart_Rate_Upon_presentation_ED"", ""value"": 170, ""shap"": 0.518266499042511, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""HeartRate_6hours"", ""value"": 92.0, ""shap"": 0.350322425365448, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0, ""shap"": 0.11358915269374847, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""CAD"", ""value"": 0, ""shap"": 0.08728046715259552, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Glucose"", ""value"": 198.0, ""shap"": 0.0646170899271965, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Ageyears"", ""value"": 90.0, ""shap"": -0.9518970847129822, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 38.2, ""shap"": -0.6276654601097107, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Hemoglobin"", ""value"": 12.9, ""shap"": -0.5073298811912537, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Sex_0"", ""value"": true, ""shap"": -0.462419718503952, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""WBC"", ""value"": 19100, ""shap"": -0.39697393774986267, ""direction"": ""decrease_risk""}]}}","Probability of prediction: 15.6%
+
+Positive features (increase prediction score):
+- Heart_Rate_Upon_presentation_ED: value=170, SHAP contribution=0.518
+- HeartRate_6hours: value=92.0, SHAP contribution=0.350
+- CerebrovascularaccidentsCVA: value=0, SHAP contribution=0.114
+- CAD: value=0, SHAP contribution=0.087
+- Glucose: value=198.0, SHAP contribution=0.065
+
+Negative features (decrease prediction score):
+- Ageyears: value=90.0, SHAP contribution=-0.952
+- Temperature_Upon_presentation_ED: value=38.2, SHAP contribution=-0.628
+- Hemoglobin: value=12.9, SHAP contribution=-0.507
+- Sex_0: value=true, SHAP contribution=-0.462
+- WBC: value=19100, SHAP contribution=-0.397","Analisis Pola Model:  
+Model memprediksi kemungkinan 15,6% dengan dominasi fitur negatif. Faktor negatif terkuat adalah usia 90 tahun (kontribusi SHAP -0,952) dan suhu 38,2°C (kontribusi -0,628). Fitur positif seperti detak jantung 170 (0,518) dan glukosa 198 (0,065) berpotensi meningkatkan skor prediksi, tetapi dampak negatif lebih besar. Kehadiran CVA dan CAD bernilai 0 (kontribusi positif 0,114 dan 0,087) mungkin berkontribusi kecil dalam meningkatkan prediksi.
+
+Interpretasi Klinis:  
+Kombinasi usia lanjut dan demam berpotensi menurunkan kemungkinan prediksi model. Detak jantung tinggi dan hiperglikemia mungkin berkontribusi positif, tetapi dampak negatif dari faktor klinis seperti usia dan demam lebih dominan dalam menghasilkan prediksi dengan probabilitas rendah.
+
+Disclaimer:  
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+64,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 65.0, ""WBC"": 14300, ""SBP_Upon_presentation_ED"": 99, ""Hemoglobin"": 10.7, ""HTN"": 1, ""Sex_0"": false, ""CAD"": 1, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 36.5, ""IVfluids_requirement_first_24hrs"": 4.5, ""Bacteremic"": 0, ""DM"": 0, ""HeartRate_6hours"": 82.0, ""Respiratory_Rate_Upon_presentation_ED"": 17.0, ""Creatinine"": 9.0, ""DBP_Upon_presentation_ED"": 75, ""TemperatureT_6hours"": NaN, ""RespiratoryRate_6hours"": 37.0, ""Sodium"": 142, ""Glucose"": 150.0, ""SIRS_6hours"": 2.0, ""Phosphate"": 7.9, ""Calcium"": 6.2, ""Heart_Rate_Upon_presentation_ED"": 83, ""BodyUreaNitrogen"": 79.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 3.0, ""DBP_6hours"": 76.0, ""O2_saturation_Upon_presentation_ED"": 95}, ""prediction"": {""predicted_label"": 1, ""actual_label"": 1, ""probability_cancer"": 0.454}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.3417891561985016, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""HeartRate_6hours"", ""value"": 82.0, ""shap"": 0.20931078493595123, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""SBP_Upon_presentation_ED"", ""value"": 99, ""shap"": 0.17766638100147247, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""Sex_0"", ""value"": false, ""shap"": 0.11599349230527878, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.09953443706035614, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""TemperatureT_6hours"", ""value"": NaN, ""shap"": -0.6022638082504272, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""WBC"", ""value"": 14300, ""shap"": -0.4069244861602783, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Sodium"", ""value"": 142, ""shap"": -0.32284095883369446, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Creatinine"", ""value"": 9.0, ""shap"": -0.1914476901292801, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""CAD"", ""value"": 1, ""shap"": -0.18740393221378326, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi: 45,4%
+
+Fitur Pendorong (Positif):
+- Temperature_Upon_presentation_ED: nilai=36.5, kontribusi SHAP=0.3418
+- HeartRate_6hours: nilai=82.0, kontribusi SHAP=0.2093
+- SBP_Upon_presentation_ED: nilai=99, kontribusi SHAP=0.1777
+- Sex_0: nilai=false, kontribusi SHAP=0.1160
+- Ageyears: nilai=65.0, kontribusi SHAP=0.0995
+
+Fitur Penurun (Negatif):
+- TemperatureT_6hours: nilai=NaN, kontribusi SHAP=-0.6023
+- WBC: nilai=14300, kontribusi SHAP=-0.4069
+- Sodium: nilai=142, kontribusi SHAP=-0.3228
+- Creatinine: nilai=9.0, kontribusi SHAP=-0.1914
+- CAD: nilai=1, kontribusi SHAP=-0.1874","Analisis Pola Model:  
+Model berpotensi menghasilkan prediksi dengan probabilitas 45,4% berdasarkan kontribusi SHAP fitur. Fitur pendorong dominan (Temperature_Upon_presentation_ED, HeartRate_6hours, SBP_Upon_presentation_ED) memberikan kontribusi positif yang signifikan, terutama nilai Temperature_Upon_presentation_ED sebesar 36,5. Sementara itu, keberadaan nilai NaN pada TemperatureT_6hours berkontribusi negatif kuat (-0,6023), yang mungkin menjadi faktor utama dalam menurunkan probabilitas prediksi. Kombinasi kontribusi positif dan negatif ini dapat menjelaskan kecenderungan model untuk menghasilkan prediksi dengan probabilitas relatif rendah.  
+
+Interpretasi Klinis:  
+Tidak ada diagnosis klinis yang dapat dibuat berdasarkan analisis ini. Model berpotensi menginterpretasikan pola fitur yang diberikan sebagai faktor pengaruh pada prediksi.  
+
+Disclaimer:  
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+67,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 65.0, ""WBC"": 40800, ""SBP_Upon_presentation_ED"": 140, ""Hemoglobin"": 12.2, ""HTN"": 1, ""Sex_0"": false, ""CAD"": 1, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 36.3, ""IVfluids_requirement_first_24hrs"": 1.0, ""Bacteremic"": 0, ""DM"": 1, ""HeartRate_6hours"": 60.0, ""Respiratory_Rate_Upon_presentation_ED"": 24.0, ""Creatinine"": 9.1, ""DBP_Upon_presentation_ED"": 77, ""TemperatureT_6hours"": 36.0, ""RespiratoryRate_6hours"": 22.0, ""Sodium"": 140, ""Glucose"": 120.0, ""SIRS_6hours"": 2.0, ""Phosphate"": 3.2, ""Calcium"": 9.5, ""Heart_Rate_Upon_presentation_ED"": 69, ""BodyUreaNitrogen"": 71.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 7.0, ""DBP_6hours"": 88.0, ""O2_saturation_Upon_presentation_ED"": 99}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.1735}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Time_to_Antibiotic_treatment_initiation_hours"", ""value"": 7.0, ""shap"": 0.20027127861976624, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.1798427253961563, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""TemperatureT_6hours"", ""value"": 36.0, ""shap"": 0.11762767285108566, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.3, ""shap"": 0.05231533944606781, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 1.0, ""shap"": 0.04747634008526802, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""HeartRate_6hours"", ""value"": 60.0, ""shap"": -1.0326578617095947, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""SBP_Upon_presentation_ED"", ""value"": 140, ""shap"": -0.6006765961647034, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Hemoglobin"", ""value"": 12.2, ""shap"": -0.4885171949863434, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Glucose"", ""value"": 120.0, ""shap"": -0.43560144305229187, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Sodium"", ""value"": 140, ""shap"": -0.1890803724527359, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.1735
+
+Fitur Pendorong (Positif):
+- Time_to_Antibiotic_treatment_initiation_hours: nilai=7.0, kontribusi SHAP=0.20027127861976624
+- Ageyears: nilai=65.0, kontribusi SHAP=0.1798427253961563
+- TemperatureT_6hours: nilai=36.0, kontribusi SHAP=0.11762767285108566
+- Temperature_Upon_presentation_ED: nilai=36.3, kontribusi SHAP=0.05231533944606781
+- IVfluids_requirement_first_24hrs: nilai=1.0, kontribusi SHAP=0.04747634008526802
+
+Fitur Penurun (Negatif):
+- HeartRate_6hours: nilai=60.0, kontribusi SHAP=-1.0326578617095947
+- SBP_Upon_presentation_ED: nilai=140, kontribusi SHAP=-0.6006765961647034
+- Hemoglobin: nilai=12.2, kontribusi SHAP=-0.4885171949863434
+- Glucose: nilai=120.0, kontribusi SHAP=-0.43560144305229187
+- Sodium: nilai=140, kontribusi SHAP=-0.1890803724527359","Analisis Pola Model: Model berpotensi menghasilkan prediksi dengan probabilitas 0.1735 karena kontribusi positif dari waktu penanganan antibiotik (7 jam), usia 65 tahun, dan suhu tubuh pada 6 jam (36.0°C). Namun, faktor negatif seperti detak jantung 60 bpm, tekanan darah sistolik 140 mmHg, hemoglobin 12.2 g/dL, glukosa 120 mg/dL, dan natrium 140 mmol/L berpotensi mengurangi keputusan model. Kombinasi fitur ini menunjukkan bahwa meskipun ada risiko dari penundaan antibiotik dan usia lanjut, kondisi fisiologis seperti bradikardia dan hipertensi berpotensi menurunkan kecenderungan prediksi.
+
+Interpretasi Klinis: Kombinasi fitur yang muncul menunjukkan bahwa model berpotensi mengidentifikasi risiko rendah dengan kontribusi positif yang tidak dominan dibandingkan faktor negatif klinis. Faktor negatif seperti hipertensi dan bradikardia mungkin berperan dalam mengurangi probabilitas prediksi.
+
+Disclaimer: Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+81,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 75.0, ""WBC"": 27800, ""SBP_Upon_presentation_ED"": 138, ""Hemoglobin"": 11.4, ""HTN"": 1, ""Sex_0"": false, ""CAD"": 0, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 36.6, ""IVfluids_requirement_first_24hrs"": 6.0, ""Bacteremic"": 1, ""DM"": 1, ""HeartRate_6hours"": 91.0, ""Respiratory_Rate_Upon_presentation_ED"": 26.0, ""Creatinine"": 1.2, ""DBP_Upon_presentation_ED"": 66, ""TemperatureT_6hours"": 37.2, ""RespiratoryRate_6hours"": 22.0, ""Sodium"": 139, ""Glucose"": 140.0, ""SIRS_6hours"": 2.0, ""Phosphate"": 3.6, ""Calcium"": 8.7, ""Heart_Rate_Upon_presentation_ED"": 104, ""BodyUreaNitrogen"": 37.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 2.0, ""DBP_6hours"": 70.0, ""O2_saturation_Upon_presentation_ED"": 86}, ""prediction"": {""predicted_label"": 1, ""actual_label"": 1, ""probability_cancer"": 0.3633}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.6, ""shap"": 0.7327625751495361, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""HeartRate_6hours"", ""value"": 91.0, ""shap"": 0.3195229470729828, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Sex_0"", ""value"": false, ""shap"": 0.18583770096302032, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""Phosphate"", ""value"": 3.6, ""shap"": 0.10926468670368195, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""CAD"", ""value"": 0, ""shap"": 0.08349555730819702, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""SBP_Upon_presentation_ED"", ""value"": 138, ""shap"": -1.0266302824020386, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""WBC"", ""value"": 27800, ""shap"": -0.7633357048034668, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Hemoglobin"", ""value"": 11.4, ""shap"": -0.4380165636539459, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Glucose"", ""value"": 140.0, ""shap"": -0.33326005935668945, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 26.0, ""shap"": -0.19446644186973572, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi: 36,33%
+
+Fitur Pendorong (Positif):
+- Temperature_Upon_presentation_ED: nilai=36.6, kontribusi SHAP=0.7328
+- HeartRate_6hours: nilai=91.0, kontribusi SHAP=0.3195
+- Sex_0: nilai=false, kontribusi SHAP=0.1858
+- Phosphate: nilai=3.6, kontribusi SHAP=0.1093
+- CAD: nilai=0, kontribusi SHAP=0.0835
+
+Fitur Penurun (Negatif):
+- SBP_Upon_presentation_ED: nilai=138, kontribusi SHAP=-1.0266
+- WBC: nilai=27800, kontribusi SHAP=-0.7633
+- Hemoglobin: nilai=11.4, kontribusi SHAP=-0.4380
+- Glucose: nilai=140.0, kontribusi SHAP=-0.3333
+- Respiratory_Rate_Upon_presentation_ED: nilai=26.0, kontribusi SHAP=-0.1945","Analisis Pola Model:  
+Model memprediksi probabilitas 36,33% dengan kontribusi fitur yang menunjukkan bahwa peningkatan suhu (36,6°C) dan detak jantung (91 bpm) berpotensi meningkatkan keputusan, sedangkan tekanan darah sistolik tinggi (138 mmHg) dan kadar sel darah putih (27.800/μL) berpotensi mengurangi probabilitas. Kontribusi SHAP terbesar positif (0,7328) dari suhu dan negatif (−1,0266) dari tekanan darah sistolik mungkin menjadi faktor dominan dalam keputusan model.  
+
+Interpretasi Klinis:  
+Kombinasi fitur tersebut berpotensi memengaruhi probabilitas prediksi tanpa dapat digunakan untuk diagnosis klinis.  
+
+Disclaimer:  
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+84,"{""patient_data"": {""SystolicCHF_EF_less_than40"": 0, ""Ageyears"": 55.0, ""WBC"": 17900, ""SBP_Upon_presentation_ED"": 64, ""Hemoglobin"": 12.8, ""HTN"": 0, ""Sex_0"": false, ""CAD"": 0, ""CerebrovascularaccidentsCVA"": 0, ""Temperature_Upon_presentation_ED"": 39.8, ""IVfluids_requirement_first_24hrs"": 6.0, ""Bacteremic"": 1, ""DM"": 0, ""HeartRate_6hours"": 80.0, ""Respiratory_Rate_Upon_presentation_ED"": 24.0, ""Creatinine"": 1.1, ""DBP_Upon_presentation_ED"": 39, ""TemperatureT_6hours"": 37.2, ""RespiratoryRate_6hours"": 22.0, ""Sodium"": 137, ""Glucose"": 108.0, ""SIRS_6hours"": 2.0, ""Phosphate"": 3.3, ""Calcium"": 9.9, ""Heart_Rate_Upon_presentation_ED"": 137, ""BodyUreaNitrogen"": 24.0, ""Time_to_Antibiotic_treatment_initiation_hours"": 13.0, ""DBP_6hours"": 60.0, ""O2_saturation_Upon_presentation_ED"": 95}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.1284}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Ageyears"", ""value"": 55.0, ""shap"": 0.41270145773887634, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Time_to_Antibiotic_treatment_initiation_hours"", ""value"": 13.0, ""shap"": 0.2397838830947876, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Heart_Rate_Upon_presentation_ED"", ""value"": 137, ""shap"": 0.13881616294384003, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""SBP_Upon_presentation_ED"", ""value"": 64, ""shap"": 0.13700266182422638, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Creatinine"", ""value"": 1.1, ""shap"": 0.10091447085142136, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""HeartRate_6hours"", ""value"": 80.0, ""shap"": -1.350553274154663, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Hemoglobin"", ""value"": 12.8, ""shap"": -0.937542200088501, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""WBC"", ""value"": 17900, ""shap"": -0.5860608220100403, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Glucose"", ""value"": 108.0, ""shap"": -0.47528883814811707, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.8, ""shap"": -0.26431965827941895, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.1284
+
+Fitur Pendorong (Positif):
+- Ageyears: nilai=55.0, kontribusi SHAP=0.4127
+- Time_to_Antibiotic_treatment_initiation_hours: nilai=13.0, kontribusi SHAP=0.2398
+- Heart_Rate_Upon_presentation_ED: nilai=137, kontribusi SHAP=0.1388
+- SBP_Upon_presentation_ED: nilai=64, kontribusi SHAP=0.1370
+- Creatinine: nilai=1.1, kontribusi SHAP=0.1009
+
+Fitur Penurun (Negatif):
+- HeartRate_6hours: nilai=80.0, kontribusi SHAP=-1.3506
+- Hemoglobin: nilai=12.8, kontribusi SHAP=-0.9375
+- WBC: nilai=17900, kontribusi SHAP=-0.5861
+- Glucose: nilai=108.0, kontribusi SHAP=-0.4753
+- Temperature_Upon_presentation_ED: nilai=39.8, kontribusi SHAP=-0.2643","Analisis Pola Model:  
+Model memprediksi probabilitas 0.1284 dengan kontribusi positif dominan pada usia (55 tahun, SHAP=0.4127) dan waktu penanganan antibiotik (13 jam, SHAP=0.2398). Kontribusi negatif kuat dari jumlah sel darah putih (17.900/μL, SHAP=-0.5861), demam (39.8°C, SHAP=-0.2643), dan hemoglobin (12.8 g/dL, SHAP=-0.9375) berpotensi menurunkan keputusan model.  
+
+Interpretasi Klinis:  
+Kombinasi fitur positif dan negatif berpotensi menghasilkan probabilitas rendah, di mana kontribusi negatif sel darah putih dan demam lebih signifikan dibandingkan usia dan waktu penanganan antibiotik.  
+
+Disclaimer: Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."

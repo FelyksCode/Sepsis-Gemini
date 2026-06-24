@@ -1,0 +1,286 @@
+index,structured_data,xai_strict_translation,clinical_reasoning
+11,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 2.6, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 1, ""Creatinine"": ""Severe"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 2.5, ""Steroids_Use"": 1, ""Heart_Rate_Upon_presentation_ED"": ""Low"", ""Magnesium"": 1.9, ""Hemoglobin"": ""Mild_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""Low"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 86, ""Potassium"": 4.0, ""Calcium"": 7.0, ""Chloride"": 90, ""TemperatureT_6hours"": 36.5, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Moderate"", ""Respiratory_Rate_Upon_presentation_ED"": 20.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 100, ""Bicarbonate"": ""Low"", ""Temperature_Upon_presentation_ED"": 36.8, ""MAP_6hours"": 55.0, ""Glucose"": ""Normal"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Delayed_1_3h"", ""Ageyears"": ""Elderly"", ""O2saturation_6hours"": 100.0, ""IVfluids_requirement_first_6hrs"": 1.0, ""HTN"": 1, ""CAD"": 0, ""RespiratoryRate_6hours"": 14.0, ""DBP_6hours"": 34.0, ""DBP_Upon_presentation_ED"": 39, ""Sex"": 0, ""Sodium"": 126, ""E.Coli"": 1}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.2971}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Calcium"", ""value"": 7.0, ""shap"": 0.2781428098678589, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""TemperatureT_6hours"", ""value"": 36.5, ""shap"": 0.1596813201904297, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Chloride"", ""value"": 90, ""shap"": 0.15540650486946106, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.8, ""shap"": 0.11755809187889099, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Creatinine"", ""value"": ""Severe"", ""shap"": 0.06481940299272537, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 2.6, ""shap"": -0.5473232865333557, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 20.0, ""shap"": -0.18706268072128296, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.1837206929922104, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Magnesium"", ""value"": 1.9, ""shap"": -0.1714317500591278, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.5, ""shap"": -0.1515549123287201, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.2971
+
+Fitur Pendorong (Positif):
+- Calcium: nilai=7.0, kontribusi SHAP=0.2781428098678589
+- TemperatureT_6hours: nilai=36.5, kontribusi SHAP=0.1596813201904297
+- Chloride: nilai=90, kontribusi SHAP=0.15540650486946106
+- Temperature_Upon_presentation_ED: nilai=36.8, kontribusi SHAP=0.11755809187889099
+- Creatinine: nilai=""Severe"", kontribusi SHAP=0.06481940299272537
+
+Fitur Penurun (Negatif):
+- Phosphate: nilai=2.6, kontribusi SHAP=-0.5473232865333557
+- Respiratory_Rate_Upon_presentation_ED: nilai=20.0, kontribusi SHAP=-0.18706268072128296
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.1837206929922104
+- Magnesium: nilai=1.9, kontribusi SHAP=-0.1714317500591278
+- IVfluids_requirement_first_24hrs: nilai=2.5, kontribusi SHAP=-0.1515549123287201
+```","**Analisis Pola Model:**
+
+Prediksi model menunjukkan kemungkinan adanya kondisi klinis yang serius. Pola fitur yang dominan adalah:
+
+1.  **Elevasi Kreatinin:** Nilai ""Severe"" pada kreatinin menunjukkan adanya gangguan fungsi ginjal yang signifikan.
+2.  **Elevasi Temperatur:** Nilai tinggi pada TemperatureT_6hours dan Temperature_Upon_presentation_ED mengindikasikan adanya proses inflamasi atau infeksi.
+3.  **Elevasi Chloride:** Nilai tinggi pada Chloride dapat mengindikasikan adanya gangguan elektrolit atau kondisi medis tertentu.
+4.  **Elevasi Temperatur:** Nilai tinggi pada Temperature_Upon_presentation_ED mengindikasikan adanya proses inflamasi atau infeksi.
+5.  **Elevasi Temperatur:** Nilai tinggi pada TemperatureT_6hours mengindikasikan adanya proses inflamasi atau infeksi.
+
+Kombinasi dari peningkatan kreatinin (gangguan ginjal), peningkatan temperatur (inflamasi/infeksi), dan peningkatan chloride (gangguan elektrolit) menunjukkan adanya kondisi klinis yang kompleks dan berpotensi mengancam jiwa.
+
+**Interpretasi Klinis:**
+
+Kombinasi fitur yang dominan, terutama peningkatan kreatinin yang parah, peningkatan temperatur yang signifikan, dan peningkatan chloride, berpotensi mengindikasikan kondisi klinis yang serius seperti gagal ginjal akut atau sepsis. Kondisi ini memerlukan evaluasi klinis segera dan penanganan yang tepat.
+
+**Disclaimer:**
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+21,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 2.1, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Mild"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 3.0, ""Steroids_Use"": 0, ""Heart_Rate_Upon_presentation_ED"": ""Normal"", ""Magnesium"": 2.6, ""Hemoglobin"": ""Severe_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""Normal"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 93, ""Potassium"": 4.8, ""Calcium"": 7.6, ""Chloride"": 101, ""TemperatureT_6hours"": 37.0, ""COPD_Emphysema"": 1, ""BodyUreaNitrogen"": ""Severe"", ""Respiratory_Rate_Upon_presentation_ED"": 18.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 100, ""Bicarbonate"": ""High"", ""Temperature_Upon_presentation_ED"": 37.1, ""MAP_6hours"": 77.0, ""Glucose"": ""High"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Delayed_1_3h"", ""Ageyears"": ""Elderly"", ""O2saturation_6hours"": 100.0, ""IVfluids_requirement_first_6hrs"": 1.0, ""HTN"": 1, ""CAD"": 0, ""RespiratoryRate_6hours"": 18.0, ""DBP_6hours"": 60.0, ""DBP_Upon_presentation_ED"": 52, ""Sex"": 1, ""Sodium"": 139, ""E.Coli"": 0}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.2994}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Magnesium"", ""value"": 2.6, ""shap"": 0.48574110865592957, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""BodyUreaNitrogen"", ""value"": ""Severe"", ""shap"": 0.19701966643333435, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.1, ""shap"": 0.07512204349040985, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""DM"", ""value"": 0, ""shap"": 0.07100922614336014, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Calcium"", ""value"": 7.6, ""shap"": 0.022288409993052483, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 2.1, ""shap"": -0.5690058469772339, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 18.0, ""shap"": -0.1602613776922226, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 3.0, ""shap"": -0.15264621376991272, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.1325974464416504, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": -0.1290246844291687, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.2994
+
+Fitur Pendorong (Positif):
+- Magnesium: nilai=2.6, kontribusi SHAP=0.48574110865592957
+- BodyUreaNitrogen: nilai=""Severe"", kontribusi SHAP=0.19701966643333435
+- Temperature_Upon_presentation_ED: nilai=37.1, kontribusi SHAP=0.07512204349040985
+- DM: nilai=0, kontribusi SHAP=0.07100922614336014
+- Calcium: nilai=7.6, kontribusi SHAP=0.022288409993052483
+
+Fitur Penurun (Negatif):
+- Phosphate: nilai=2.1, kontribusi SHAP=-0.5690058469772339
+- Respiratory_Rate_Upon_presentation_ED: nilai=18.0, kontribusi SHAP=-0.1602613776922226
+- IVfluids_requirement_first_24hrs: nilai=3.0, kontribusi SHAP=-0.15264621376991272
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.1325974464416504
+- RespiratoryRate_6hours: nilai=18.0, kontribusi SHAP=-0.1290246844291687
+```","**Analisis Pola Model:**
+
+Prediksi model menunjukkan kemungkinan adanya kondisi klinis yang serius. Pola fitur yang dominan adalah **BodyUreaNitrogen** dengan nilai ""Severe"" dan kontribusi SHAP positif yang signifikan, serta **Magnesium** dengan nilai 2.6 dan kontribusi SHAP positif. Kombinasi fitur ini mengindikasikan potensi masalah metabolik atau ginjal yang signifikan.
+
+**Interpretasi Klinis:**
+
+Kombinasi fitur ""Severe"" BodyUreaNitrogen dan Magnesium yang tinggi berpotensi mengindikasikan kondisi seperti gagal ginjal akut atau sindrom nefrotik, yang dapat memengaruhi metabolisme dan keseimbangan cairan.
+
+**Disclaimer:**
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis.
+```"
+24,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 1, ""Phosphate"": 2.9, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Severe"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 3.0, ""Steroids_Use"": 1, ""Heart_Rate_Upon_presentation_ED"": ""Normal"", ""Magnesium"": 2.2, ""Hemoglobin"": ""Mild_Anemia"", ""Non_SystolicCHF_EF\u226540"": 1, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""Normal"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 143, ""Potassium"": 3.5, ""Calcium"": 8.4, ""Chloride"": 96, ""TemperatureT_6hours"": 36.0, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Severe"", ""Respiratory_Rate_Upon_presentation_ED"": 20.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 93, ""Bicarbonate"": ""High"", ""Temperature_Upon_presentation_ED"": 36.3, ""MAP_6hours"": 93.0, ""Glucose"": ""Normal"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Immediate_Within_1h"", ""Ageyears"": ""Elderly"", ""O2saturation_6hours"": 96.0, ""IVfluids_requirement_first_6hrs"": 1.0, ""HTN"": 1, ""CAD"": 1, ""RespiratoryRate_6hours"": 18.0, ""DBP_6hours"": 70.0, ""DBP_Upon_presentation_ED"": 54, ""Sex"": 1, ""Sodium"": 138, ""E.Coli"": 1}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.4102}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.3, ""shap"": 0.1774570494890213, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""BodyUreaNitrogen"", ""value"": ""Severe"", ""shap"": 0.16398324072360992, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""TemperatureT_6hours"", ""value"": 36.0, ""shap"": 0.16174356639385223, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""O2saturation_6hours"", ""value"": 96.0, ""shap"": 0.13449563086032867, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Magnesium"", ""value"": 2.2, ""shap"": 0.096245177090168, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 2.9, ""shap"": -0.5960885882377625, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.16564908623695374, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 20.0, ""shap"": -0.16401468217372894, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Active_cancer"", ""value"": 0, ""shap"": -0.15358765423297882, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 3.0, ""shap"": -0.13162457942962646, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.4102
+Fitur Pendorong (Positif):
+- Temperature_Upon_presentation_ED: 36.3, kontribusi SHAP=0.1774570494890213
+- BodyUreaNitrogen: ""Severe"", kontribusi SHAP=0.16398324072360992
+- TemperatureT_6hours: 36.0, kontribusi SHAP=0.16174356639385223
+- O2saturation_6hours: 96.0, kontribusi SHAP=0.13449563086032867
+- Magnesium: 2.2, kontribusi SHAP=0.096245177090168
+Fitur Penurun (Negatif):
+- Phosphate: 2.9, kontribusi SHAP=-0.5960885882377625
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: 0, kontribusi SHAP=-0.16564908623695374
+- Respiratory_Rate_Upon_presentation_ED: 20.0, kontribusi SHAP=-0.16401468217372894
+- Active_cancer: 0, kontribusi SHAP=-0.15358765423297882
+- IVfluids_requirement_first_24hrs: 3.0, kontribusi SHAP=-0.13162457942962646
+Jangan menambahkan bagian lain.","**Analisis Pola Model:**
+
+Pola fitur yang paling signifikan dalam prediksi ini adalah kombinasi dari faktor yang menunjukkan kondisi hemodinamik yang stabil namun dengan adanya faktor risiko. Prediksi positif (0.4102) didorong oleh Temperature_Upon_presentation_ED (36.3), BodyUreaNitrogen (""Severe""), TemperatureT_6hours (36.0), dan O2saturation_6hours (96.0). Sebaliknya, prediksi negatif (0.5898) didorong oleh Phosphate (2.9), Patient_receive_vasopressors_inotropes_withinfirst_24h (0), Respiratory_Rate_Upon_presentation_ED (20.0), Active_cancer (0), dan IVfluids_requirement_first_24hrs (3.0).
+
+Kombinasi fitur yang dominan, terutama yang menunjukkan kondisi yang stabil (seperti O2saturation_6hours 96.0 dan Temperature_Upon_presentation_ED 36.3) dikombinasikan dengan faktor risiko seperti BodyUreaNitrogen (""Severe"") dan Phosphate (2.9), dapat memengaruhi keputusan model. Prediksi positif menunjukkan adanya faktor risiko yang signifikan, sementara prediksi negatif menunjukkan kondisi yang lebih stabil dengan beberapa faktor risiko yang tidak signifikan.
+
+**Interpretasi Klinis:**
+
+Prediksi ini mengindikasikan adanya kemungkinan kondisi klinis yang memerlukan perhatian. Faktor risiko seperti BodyUreaNitrogen (""Severe"") dan Phosphate (2.9) dapat menjadi pertimbangan penting dalam manajemen pasien. Kondisi hemodinamik yang stabil (O2saturation_6hours 96.0) dan suhu yang moderat (Temperature_Upon_presentation_ED 36.3) menunjukkan adanya upaya untuk menjaga fungsi vital. Namun, faktor lain seperti Respiratory_Rate_Upon_presentation_ED (20.0) dan IVfluids_requirement_first_24hrs (3.0) juga perlu dipertimbangkan dalam evaluasi klinis.
+
+**Disclaimer:**
+
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+47,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 6.0, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Normal"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 5.5, ""Steroids_Use"": 1, ""Heart_Rate_Upon_presentation_ED"": ""High"", ""Magnesium"": 1.6, ""Hemoglobin"": ""Mild_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""Normal"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 99, ""Potassium"": 3.9, ""Calcium"": 9.3, ""Chloride"": 92, ""TemperatureT_6hours"": 36.8, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Moderate"", ""Respiratory_Rate_Upon_presentation_ED"": 24.0, ""Active_cancer"": 1, ""O2_saturation_Upon_presentation_ED"": 100, ""Bicarbonate"": ""Normal"", ""Temperature_Upon_presentation_ED"": 39.2, ""MAP_6hours"": 98.0, ""Glucose"": ""High"", ""DM"": 1, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Immediate_Within_1h"", ""Ageyears"": ""Elderly"", ""O2saturation_6hours"": 100.0, ""IVfluids_requirement_first_6hrs"": 4.0, ""HTN"": 0, ""CAD"": 1, ""RespiratoryRate_6hours"": 24.0, ""DBP_6hours"": 88.0, ""DBP_Upon_presentation_ED"": 63, ""Sex"": 1, ""Sodium"": 133, ""E.Coli"": 0}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.4315}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 6.0, ""shap"": 0.49322694540023804, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Active_cancer"", ""value"": 1, ""shap"": 0.126445472240448, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""RespiratoryRate_6hours"", ""value"": 24.0, ""shap"": 0.12154237926006317, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""Chloride"", ""value"": 92, ""shap"": 0.1172688752412796, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""DBP_6hours"", ""value"": 88.0, ""shap"": 0.05512835830450058, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Calcium"", ""value"": 9.3, ""shap"": -0.34889763593673706, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Magnesium"", ""value"": 1.6, ""shap"": -0.1971326470375061, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.2, ""shap"": -0.1955593377351761, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""DM"", ""value"": 1, ""shap"": -0.19038431346416473, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.18652395904064178, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.4315
+Fitur Pendorong (Positif):
+- Phosphate: nilai=6.0, kontribusi SHAP=0.49322694540023804
+- Active_cancer: nilai=1, kontribusi SHAP=0.126445472240448
+- RespiratoryRate_6hours: nilai=24.0, kontribusi SHAP=0.12154237926006317
+- Chloride: nilai=92, kontribusi SHAP=0.1172688752412796
+- DBP_6hours: nilai=88.0, kontribusi SHAP=0.05512835830450058
+Fitur Penurun (Negatif):
+- Calcium: nilai=9.3, kontribusi SHAP=-0.34889763593673706
+- Magnesium: nilai=1.6, kontribusi SHAP=-0.1971326470375061
+- Temperature_Upon_presentation_ED: nilai=39.2, kontribusi SHAP=-0.1955593377351761
+- DM: nilai=1, kontribusi SHAP=-0.19038431346416473
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.18652395904064178
+Jangan menambahkan bagian lain.","**Analisis Pola Model:**
+
+Prediksi model menunjukkan kemungkinan adanya kondisi yang memerlukan perhatian medis. Pola fitur yang dominan pada penjelasan SHAP mengindikasikan adanya kemungkinan peningkatan risiko atau kondisi yang terkait dengan:
+
+1.  **Peningkatan kadar Phosphate:** Nilai Phosphate yang tinggi (6.0) dan kontribusi SHAP positif menunjukkan potensi hubungan dengan kondisi yang memerlukan penanganan.
+2.  **Kondisi Kanker Paru-paru:** Fitur `Active_cancer` dengan nilai 1 dan kontribusi SHAP positif mengindikasikan adanya kemungkinan kondisi kanker paru-paru.
+3.  **Peningkatan Frekuensi Pernapasan:** Nilai `RespiratoryRate_6hours` yang tinggi (24.0) dan kontribusi SHAP positif menunjukkan potensi peningkatan frekuensi pernapasan.
+4.  **Peningkatan kadar Chloride:** Nilai Chloride yang tinggi (92) dan kontribusi SHAP positif menunjukkan potensi hubungan dengan kondisi yang memerlukan penanganan.
+5.  **Peningkatan tekanan darah diastolik:** Nilai `DBP_6hours` yang tinggi (88.0) dan kontribusi SHAP positif menunjukkan potensi peningkatan tekanan darah diastolik.
+
+Kombinasi fitur-fitur ini, terutama peningkatan kadar Phosphate, Chloride, dan tekanan darah diastolik, bersama dengan kemungkinan adanya kondisi kanker paru-paru dan peningkatan frekuensi pernapasan, dapat mengindikasikan adanya kondisi medis yang memerlukan evaluasi lebih lanjut.
+
+**Interpretasi Klinis:**
+
+Hasil analisis ini menunjukkan adanya kemungkinan kondisi medis yang memerlukan perhatian medis. Kombinasi fitur yang teridentifikasi dapat menjadi indikator adanya kondisi yang memerlukan penanganan.
+
+**Disclaimer:**
+
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+49,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 1.0, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Normal"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 4.5, ""Steroids_Use"": 1, ""Heart_Rate_Upon_presentation_ED"": ""High"", ""Magnesium"": 1.4, ""Hemoglobin"": ""Severe_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""High"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 136, ""Potassium"": 2.8, ""Calcium"": 10.4, ""Chloride"": 93, ""TemperatureT_6hours"": 37.1, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Normal"", ""Respiratory_Rate_Upon_presentation_ED"": 18.0, ""Active_cancer"": 1, ""O2_saturation_Upon_presentation_ED"": 88, ""Bicarbonate"": ""Normal"", ""Temperature_Upon_presentation_ED"": 37.7, ""MAP_6hours"": 89.0, ""Glucose"": ""Normal"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Late_Over_3h"", ""Ageyears"": ""Young"", ""O2saturation_6hours"": 97.0, ""IVfluids_requirement_first_6hrs"": 2.5, ""HTN"": 1, ""CAD"": 0, ""RespiratoryRate_6hours"": 18.0, ""DBP_6hours"": 72.0, ""DBP_Upon_presentation_ED"": 85, ""Sex"": 0, ""Sodium"": 140, ""E.Coli"": 0}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.2177}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Chloride"", ""value"": 93, ""shap"": 0.14939779043197632, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""HeartRate_6hours"", ""value"": ""High"", ""shap"": 0.12676893174648285, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Active_cancer"", ""value"": 1, ""shap"": 0.11006332188844681, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""O2saturation_6hours"", ""value"": 97.0, ""shap"": 0.08483372628688812, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""DM"", ""value"": 0, ""shap"": 0.07918135821819305, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 1.0, ""shap"": -0.5620882511138916, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Calcium"", ""value"": 10.4, ""shap"": -0.3205784559249878, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.7, ""shap"": -0.27978625893592834, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Magnesium"", ""value"": 1.4, ""shap"": -0.21544304490089417, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.18296939134597778, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.2177
+Fitur Pendorong (Positif):
+- Chloride: nilai=93, kontribusi SHAP=0.14939779043197632
+- HeartRate_6hours: nilai=""High"", kontribusi SHAP=0.12676893174648285
+- Active_cancer: nilai=1, kontribusi SHAP=0.11006332188844681
+- O2saturation_6hours: nilai=97.0, kontribusi SHAP=0.08483372628688812
+- DM: nilai=0, kontribusi SHAP=0.07918135821819305
+Fitur Penurun (Negatif):
+- Phosphate: nilai=1.0, kontribusi SHAP=-0.5620882511138916
+- Calcium: nilai=10.4, kontribusi SHAP=-0.3205784559249878
+- Temperature_Upon_presentation_ED: nilai=37.7, kontribusi SHAP=-0.27978625893592834
+- Magnesium: nilai=1.4, kontribusi SHAP=-0.21544304490089417
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.18296939134597778
+Jangan menambahkan bagian lain.","**Analisis Pola Model:**
+
+Pola fitur yang dominan dalam prediksi ini adalah kombinasi dari faktor yang menunjukkan kondisi hemodinamik yang stabil namun dengan adanya riwayat kanker aktif dan nilai chloride yang tinggi.
+
+*   **Faktor Positif:** Nilai chloride yang tinggi (93) dan riwayat kanker aktif (1) berkontribusi positif pada prediksi. Nilai HeartRate_6hours yang ""High"" juga berkontribusi positif.
+*   **Faktor Negatif:** Nilai Phosphate yang sangat rendah (1.0) dan Calcium yang tinggi (10.4) berkontribusi negatif pada prediksi. Nilai Temperature_Upon_presentation_ED yang moderat (37.7) dan Magnesium yang normal (1.4) juga berkontribusi negatif.
+
+Kombinasi fitur positif (chloride tinggi, kanker aktif, heart rate tinggi) dan negatif (phosphate rendah, calcium tinggi, temperature moderat, magnesium normal) menunjukkan bahwa model mengidentifikasi profil klinis yang mungkin terkait dengan prognosis tertentu, meskipun tidak dapat ditentukan secara spesifik tanpa konteks klinis yang lebih luas.
+
+**Interpretasi Klinis:**
+
+Prediksi ini mengindikasikan adanya kemungkinan kondisi klinis yang memerlukan perhatian khusus. Kombinasi fitur yang teridentifikasi dapat mengarah pada interpretasi bahwa pasien mungkin memiliki riwayat kanker aktif dan kondisi hemodinamik yang memerlukan pemantauan. Namun, interpretasi ini bersifat spekulatif dan memerlukan evaluasi klinis menyeluruh.
+
+**Disclaimer:**
+
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+51,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 3.0, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Mild"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 9.0, ""Steroids_Use"": 0, ""Heart_Rate_Upon_presentation_ED"": ""Low"", ""Magnesium"": 1.7, ""Hemoglobin"": ""Severe_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 1, ""HeartRate_6hours"": ""Normal"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 72, ""Potassium"": 5.2, ""Calcium"": 7.3, ""Chloride"": 110, ""TemperatureT_6hours"": 36.4, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Moderate"", ""Respiratory_Rate_Upon_presentation_ED"": 22.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 99, ""Bicarbonate"": ""Low"", ""Temperature_Upon_presentation_ED"": 36.7, ""MAP_6hours"": 50.0, ""Glucose"": ""High"", ""DM"": 1, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Delayed_1_3h"", ""Ageyears"": ""Middle_Aged"", ""O2saturation_6hours"": 100.0, ""IVfluids_requirement_first_6hrs"": 5.0, ""HTN"": 0, ""CAD"": 0, ""RespiratoryRate_6hours"": 18.0, ""DBP_6hours"": 41.0, ""DBP_Upon_presentation_ED"": 42, ""Sex"": 1, ""Sodium"": 139, ""E.Coli"": 0}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.3975}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Calcium"", ""value"": 7.3, ""shap"": 0.27222421765327454, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 1, ""shap"": 0.1790977418422699, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.17112483084201813, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 9.0, ""shap"": 0.151453897356987, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""TemperatureT_6hours"", ""value"": 36.4, ""shap"": 0.1414359211921692, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 3.0, ""shap"": -0.43077680468559265, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Chloride"", ""value"": 110, ""shap"": -0.19155991077423096, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": -0.1759754866361618, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Magnesium"", ""value"": 1.7, ""shap"": -0.15659359097480774, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Active_cancer"", ""value"": 0, ""shap"": -0.14865539968013763, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.3975
+
+Fitur Pendorong (Positif):
+- Calcium: nilai=7.3, kontribusi SHAP=0.27222421765327454
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=1, kontribusi SHAP=0.1790977418422699
+- Temperature_Upon_presentation_ED: nilai=36.7, kontribusi SHAP=0.17112483084201813
+- IVfluids_requirement_first_24hrs: nilai=9.0, kontribusi SHAP=0.151453897356987
+- TemperatureT_6hours: nilai=36.4, kontribusi SHAP=0.1414359211921692
+
+Fitur Penurun (Negatif):
+- Phosphate: nilai=3.0, kontribusi SHAP=-0.43077680468559265
+- Chloride: nilai=110, kontribusi SHAP=-0.19155991077423096
+- RespiratoryRate_6hours: nilai=18.0, kontribusi SHAP=-0.1759754866361618
+- Magnesium: nilai=1.7, kontribusi SHAP=-0.15659359097480774
+- Active_cancer: nilai=0, kontribusi SHAP=-0.14865539968013763
+```","**Analisis Pola Model:**
+
+Prediksi model menunjukkan kemungkinan adanya kondisi klinis tertentu. Pola fitur yang dominan pada penjelasan SHAP mengindikasikan adanya peningkatan risiko atau kemungkinan terkait dengan:
+
+1.  **Peningkatan Gula Darah:** Fitur `IVfluids_requirement_first_24hrs` dengan nilai tinggi (9.0) dan kontribusi SHAP positif, serta `Temperature_Upon_presentation_ED` dengan nilai tinggi (36.7) dan kontribusi SHAP positif, menunjukkan potensi peningkatan kebutuhan cairan intravena dan suhu tubuh yang tinggi saat presentasi di Unit Gawat Darurat. Ini dapat mengindikasikan kondisi seperti dehidrasi atau sepsis, yang seringkali terkait dengan peningkatan kadar gula darah.
+2.  **Peningkatan Gula Darah:** Fitur `Calcium` dengan nilai rendah (7.3) dan kontribusi SHAP positif, serta `Phosphate` dengan nilai rendah (3.0) dan kontribusi SHAP negatif yang signifikan, menunjukkan potensi adanya gangguan elektrolit. Gangguan ini dapat memengaruhi metabolisme glukosa dan berpotensi meningkatkan kadar gula darah.
+3.  **Peningkatan Gula Darah:** Fitur `Patient_receive_vasopressors_inotropes_withinfirst_24h` dengan nilai 1 dan kontribusi SHAP positif, menunjukkan adanya penggunaan vasopressor dan inotropik dalam 24 jam pertama. Penggunaan obat-obatan ini seringkali terkait dengan kondisi yang memerlukan dukungan hemodinamik, seperti sepsis atau gagal jantung, yang dapat berkontribusi pada peningkatan kadar gula darah.
+4.  **Peningkatan Gula Darah:** Fitur `TemperatureT_6hours` dengan nilai rendah (36.4) dan kontribusi SHAP positif, menunjukkan penurunan suhu tubuh setelah 6 jam. Ini mungkin mengindikasikan respons terhadap terapi atau perbaikan kondisi, namun tetap perlu dipertimbangkan dalam konteks keseluruhan.
+
+Kombinasi fitur yang menunjukkan peningkatan kebutuhan cairan, suhu tubuh tinggi, potensi gangguan elektrolit, dan penggunaan obat suportif seperti vasopressor dan inotropik, berpotensi meningkatkan kemungkinan diagnosis kondisi yang terkait dengan peningkatan kadar gula darah.
+
+**Interpretasi Klinis:**
+
+Pola fitur yang teridentifikasi menunjukkan adanya kemungkinan peningkatan risiko atau kemungkinan terkait dengan kondisi klinis yang memerlukan perhatian medis segera. Penggunaan vasopressor dan inotropik, kebutuhan cairan yang tinggi, dan suhu tubuh yang tinggi saat presentasi di Unit Gawat Darurat merupakan indikator penting yang perlu dipertimbangkan dalam evaluasi klinis.
+
+**Disclaimer:**
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+54,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 3.1, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Normal"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 8.0, ""Steroids_Use"": 0, ""Heart_Rate_Upon_presentation_ED"": ""Normal"", ""Magnesium"": 2.0, ""Hemoglobin"": ""Severe_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""High"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 78, ""Potassium"": 5.0, ""Calcium"": 6.2, ""Chloride"": 97, ""TemperatureT_6hours"": 39.0, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Normal"", ""Respiratory_Rate_Upon_presentation_ED"": 18.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 100, ""Bicarbonate"": ""Low"", ""Temperature_Upon_presentation_ED"": 36.6, ""MAP_6hours"": 94.0, ""Glucose"": ""Normal"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Immediate_Within_1h"", ""Ageyears"": ""Young"", ""O2saturation_6hours"": 97.0, ""IVfluids_requirement_first_6hrs"": 4.5, ""HTN"": 0, ""CAD"": 0, ""RespiratoryRate_6hours"": 24.0, ""DBP_6hours"": 87.0, ""DBP_Upon_presentation_ED"": 42, ""Sex"": 0, ""Sodium"": 129, ""E.Coli"": 0}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.4397}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Calcium"", ""value"": 6.2, ""shap"": 0.2841571867465973, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 8.0, ""shap"": 0.1655028760433197, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.6, ""shap"": 0.16260211169719696, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""RespiratoryRate_6hours"", ""value"": 24.0, ""shap"": 0.11587627232074738, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""HeartRate_6hours"", ""value"": ""High"", ""shap"": 0.10721326619386673, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 3.1, ""shap"": -0.4492972791194916, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Active_cancer"", ""value"": 0, ""shap"": -0.18819619715213776, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.1818200945854187, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""TemperatureT_6hours"", ""value"": 39.0, ""shap"": -0.16553574800491333, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 18.0, ""shap"": -0.1602613776922226, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.4397
+Fitur Pendorong (Positif):
+- Calcium: nilai=6.2, kontribusi SHAP=0.2841571867465973
+- IVfluids_requirement_first_24hrs: nilai=8.0, kontribusi SHAP=0.1655028760433197
+- Temperature_Upon_presentation_ED: nilai=36.6, kontribusi SHAP=0.16260211169719696
+- RespiratoryRate_6hours: nilai=24.0, kontribusi SHAP=0.11587627232074738
+- HeartRate_6hours: nilai=High, kontribusi SHAP=0.10721326619386673
+Fitur Penurun (Negatif):
+- Phosphate: nilai=3.1, kontribusi SHAP=-0.4492972791194916
+- Active_cancer: nilai=0, kontribusi SHAP=-0.18819619715213776
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.1818200945854187
+- TemperatureT_6hours: nilai=39.0, kontribusi SHAP=-0.16553574800491333
+- Respiratory_Rate_Upon_presentation_ED: nilai=18.0, kontribusi SHAP=-0.1602613776922226
+```","**Analisis Pola Model:**
+
+Prediksi model menunjukkan kemungkinan adanya kondisi medis tertentu. Pola fitur yang dominan adalah:
+
+1.  **Peningkatan kadar Calcium:** Nilai 6.2, dengan kontribusi SHAP positif yang signifikan (0.284). Ini mengindikasikan potensi gangguan pada sistem kalium atau fungsi ginjal.
+2.  **Kebutuhan IV fluids yang tinggi:** Nilai 8.0, dengan kontribusi SHAP positif (0.166). Ini menunjukkan kemungkinan dehidrasi atau ketidakseimbangan cairan.
+3.  **Suhu tubuh tinggi saat tiba di ED:** Nilai 36.6, dengan kontribusi SHAP positif (0.163). Ini bisa menjadi tanda infeksi atau kondisi sistemik lainnya.
+4.  **Laju pernapasan tinggi (6 jam):** Nilai 24.0, dengan kontribusi SHAP positif (0.116). Ini bisa mengindikasikan stres pernapasan atau masalah paru-paru.
+5.  **Laju jantung tinggi (6 jam):** Nilai ""High"", dengan kontribusi SHAP positif (0.107). Ini bisa menandakan respons terhadap stres, dehidrasi, atau kondisi kardiovaskular.
+
+Kombinasi fitur-fitur ini, terutama peningkatan Calcium, kebutuhan IV fluids, suhu tinggi, dan laju pernapasan/jantung yang tinggi, berpotensi mengindikasikan kondisi seperti syok atau sepsis, yang memerlukan evaluasi klinis segera.
+
+**Interpretasi Klinis:**
+
+Pola fitur yang teridentifikasi menunjukkan adanya beberapa tanda vital yang tidak normal. Peningkatan kadar Calcium, kebutuhan IV fluids yang tinggi, suhu tubuh yang tinggi, dan laju pernapasan serta jantung yang tinggi dapat menjadi indikator adanya kondisi medis serius.
+
+**Disclaimer:**
+
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+56,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 3.4, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Normal"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 6.0, ""Steroids_Use"": 0, ""Heart_Rate_Upon_presentation_ED"": ""High"", ""Magnesium"": 1.4, ""Hemoglobin"": ""Mild_Anemia"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""High"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 116, ""Potassium"": 4.0, ""Calcium"": 8.7, ""Chloride"": 83, ""TemperatureT_6hours"": 37.9, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Normal"", ""Respiratory_Rate_Upon_presentation_ED"": 22.0, ""Active_cancer"": 1, ""O2_saturation_Upon_presentation_ED"": 99, ""Bicarbonate"": ""Low"", ""Temperature_Upon_presentation_ED"": 37.3, ""MAP_6hours"": 63.0, ""Glucose"": ""Low"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Late_Over_3h"", ""Ageyears"": ""Middle_Aged"", ""O2saturation_6hours"": 96.0, ""IVfluids_requirement_first_6hrs"": 1.0, ""HTN"": 0, ""CAD"": 0, ""RespiratoryRate_6hours"": 20.0, ""DBP_6hours"": 50.0, ""DBP_Upon_presentation_ED"": 69, ""Sex"": 0, ""Sodium"": 125, ""E.Coli"": 1}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.4186}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""O2saturation_6hours"", ""value"": 96.0, ""shap"": 0.1942826807498932, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""Chloride"", ""value"": 83, ""shap"": 0.15297146141529083, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""HeartRate_6hours"", ""value"": ""High"", ""shap"": 0.1305459439754486, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""DM"", ""value"": 0, ""shap"": 0.10586073994636536, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""Active_cancer"", ""value"": 1, ""shap"": 0.09974763542413712, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Magnesium"", ""value"": 1.4, ""shap"": -0.21544304490089417, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.19330859184265137, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""RespiratoryRate_6hours"", ""value"": 20.0, ""shap"": -0.19201518595218658, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.3, ""shap"": -0.1883848011493683, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Phosphate"", ""value"": 3.4, ""shap"": -0.17807552218437195, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.4186
+Fitur Pendorong (Positif):
+- O2saturation_6hours: nilai=96.0, kontribusi SHAP=0.1942826807498932
+- Chloride: nilai=83, kontribusi SHAP=0.15297146141529083
+- HeartRate_6hours: nilai=""High"", kontribusi SHAP=0.1305459439754486
+- DM: nilai=0, kontribusi SHAP=0.10586073994636536
+- Active_cancer: nilai=1, kontribusi SHAP=0.09974763542413712
+Fitur Penurun (Negatif):
+- Magnesium: nilai=1.4, kontribusi SHAP=-0.21544304490089417
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: nilai=0, kontribusi SHAP=-0.19330859184265137
+- RespiratoryRate_6hours: nilai=20.0, kontribusi SHAP=-0.19201518595218658
+- Temperature_Upon_presentation_ED: nilai=37.3, kontribusi SHAP=-0.1883848011493683
+- Phosphate: nilai=3.4, kontribusi SHAP=-0.17807552218437195
+Jangan menambahkan bagian lain.","**Analisis Pola Model:**
+
+Prediksi dengan probabilitas 0.4186 menunjukkan kemungkinan adanya kondisi klinis tertentu. Pola fitur yang dominan dalam penjelasan SHAP mengindikasikan adanya beberapa faktor yang berkontribusi pada prediksi ini.
+
+Fitur yang mendorong prediksi positif meliputi:
+- Tingkat saturasi oksigen (O2saturation_6hours) yang tinggi (96.0).
+- Kadar klorida (Chloride) yang tinggi (83).
+- Kecepatan denyut jantung (HeartRate_6hours) yang tinggi (""High"").
+- Status diabetes mellitus (DM) yang positif (0).
+- Adanya riwayat kanker aktif (Active_cancer) (1).
+
+Fitur yang menurunkan prediksi negatif meliputi:
+- Kadar magnesium (Magnesium) yang rendah (1.4).
+- Tidak adanya pemberian vasopressor inotropik dalam 24 jam pertama (Patient_receive_vasopressors_inotropes_withinfirst_24h).
+- Kecepatan pernapasan (RespiratoryRate_6hours) yang normal (20.0).
+- Suhu saat presentasi di ED (Temperature_Upon_presentation_ED) yang normal (37.3).
+- Kadar fosfat (Phosphate) yang normal (3.4).
+
+Kombinasi fitur yang mendorong prediksi positif (O2saturation_6hours tinggi, Chloride tinggi, HeartRate_6hours tinggi, DM positif, Active_cancer positif) dan fitur yang menurunkan prediksi negatif (Magnesium rendah, tidak ada vasopressor, RespiratoryRate normal, Suhu normal, Phosphate normal) menunjukkan adanya beberapa faktor yang berkontribusi pada prediksi model.
+
+**Interpretasi Klinis:**
+
+Prediksi ini mengindikasikan adanya kemungkinan kondisi klinis yang memerlukan perhatian medis. Kombinasi dari saturasi oksigen yang tinggi, kadar klorida yang tinggi, kecepatan denyut jantung yang tinggi, status DM, dan riwayat kanker aktif, dikombinasikan dengan kadar magnesium yang rendah dan tidak adanya pemberian vasopressor, dapat menjadi indikator adanya kondisi klinis tertentu.
+
+**Disclaimer:**
+
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis."
+68,"{""patient_data"": {""SIRS_Upon_presentation_ED"": 2, ""Phosphate"": 2.7, ""WBC"": ""High"", ""SystolicCHF_EF_less_than40"": 0, ""Creatinine"": ""Mild"", ""CerebrovascularaccidentsCVA"": 0, ""IVfluids_requirement_first_24hrs"": 4.0, ""Steroids_Use"": 1, ""Heart_Rate_Upon_presentation_ED"": ""High"", ""Magnesium"": 1.3, ""Hemoglobin"": ""Normal"", ""Non_SystolicCHF_EF\u226540"": 0, ""Patient_receive_vasopressors_inotropes_withinfirst_24h"": 0, ""HeartRate_6hours"": ""High"", ""Pseudomonas"": 0, ""SBP_Upon_presentation_ED"": 128, ""Potassium"": 4.1, ""Calcium"": 9.2, ""Chloride"": 104, ""TemperatureT_6hours"": 37.1, ""COPD_Emphysema"": 0, ""BodyUreaNitrogen"": ""Moderate"", ""Respiratory_Rate_Upon_presentation_ED"": 31.0, ""Active_cancer"": 0, ""O2_saturation_Upon_presentation_ED"": 88, ""Bicarbonate"": ""Low"", ""Temperature_Upon_presentation_ED"": 39.4, ""MAP_6hours"": 89.0, ""Glucose"": ""Normal"", ""DM"": 0, ""Time_to_Antibiotic_treatment_initiation_hours"": ""Delayed_1_3h"", ""Ageyears"": ""Elderly"", ""O2saturation_6hours"": 96.0, ""IVfluids_requirement_first_6hrs"": 2.0, ""HTN"": 1, ""CAD"": 0, ""RespiratoryRate_6hours"": 25.0, ""DBP_6hours"": 81.0, ""DBP_Upon_presentation_ED"": 81, ""Sex"": 0, ""Sodium"": 138, ""E.Coli"": 1}, ""prediction"": {""predicted_label"": 0, ""actual_label"": 1, ""probability_cancer"": 0.2559}, ""shap_explanation"": {""top_positive"": [{""rank"": 1, ""feature"": ""Respiratory_Rate_Upon_presentation_ED"", ""value"": 31.0, ""shap"": 0.1640157848596573, ""direction"": ""increase_risk""}, {""rank"": 2, ""feature"": ""O2saturation_6hours"", ""value"": 96.0, ""shap"": 0.1588331013917923, ""direction"": ""increase_risk""}, {""rank"": 3, ""feature"": ""RespiratoryRate_6hours"", ""value"": 25.0, ""shap"": 0.13776689767837524, ""direction"": ""increase_risk""}, {""rank"": 4, ""feature"": ""DM"", ""value"": 0, ""shap"": 0.10754388570785522, ""direction"": ""increase_risk""}, {""rank"": 5, ""feature"": ""HeartRate_6hours"", ""value"": ""High"", ""shap"": 0.10188125818967819, ""direction"": ""increase_risk""}], ""top_negative"": [{""rank"": 1, ""feature"": ""Phosphate"", ""value"": 2.7, ""shap"": -0.5552169680595398, ""direction"": ""decrease_risk""}, {""rank"": 2, ""feature"": ""Calcium"", ""value"": 9.2, ""shap"": -0.300654798746109, ""direction"": ""decrease_risk""}, {""rank"": 3, ""feature"": ""Magnesium"", ""value"": 1.3, ""shap"": -0.19850888848304749, ""direction"": ""decrease_risk""}, {""rank"": 4, ""feature"": ""Patient_receive_vasopressors_inotropes_withinfirst_24h"", ""value"": 0, ""shap"": -0.1943388283252716, ""direction"": ""decrease_risk""}, {""rank"": 5, ""feature"": ""Chloride"", ""value"": 104, ""shap"": -0.18551816046237946, ""direction"": ""decrease_risk""}]}}","Probabilitas Prediksi:
+0.2559
+
+Fitur Pendorong (Positif):
+- Respiratory_Rate_Upon_presentation_ED: 31.0, kontribusi SHAP=0.1640157848596573
+- O2saturation_6hours: 96.0, kontribusi SHAP=0.1588331013917923
+- RespiratoryRate_6hours: 25.0, kontribusi SHAP=0.13776689767837524
+- DM: 0, kontribusi SHAP=0.10754388570785522
+- HeartRate_6hours: ""High"", kontribusi SHAP=0.10188125818967819
+
+Fitur Penurun (Negatif):
+- Phosphate: 2.7, kontribusi SHAP=-0.5552169680595398
+- Calcium: 9.2, kontribusi SHAP=-0.300654798746109
+- Magnesium: 1.3, kontribusi SHAP=-0.19850888848304749
+- Patient_receive_vasopressors_inotropes_withinfirst_24h: 0, kontribusi SHAP=-0.1943388283252716
+- Chloride: 104, kontribusi SHAP=-0.18551816046237946
+```","**Analisis Pola Model:**
+
+Pola fitur yang dominan dalam prediksi ini adalah adanya peningkatan laju pernapasan (Respiratory_Rate_Upon_presentation_ED), saturasi oksigen yang tinggi (O2saturation_6hours), dan laju pernapasan yang meningkat (RespiratoryRate_6hours) dalam 6 jam pertama setelah kedatangan di Unit Gawat Darurat (ED). Selain itu, kondisi Diabetes Mellitus (DM) dan peningkatan detak jantung (HeartRate_6hours) juga berkontribusi pada prediksi.
+
+**Interpretasi Klinis:**
+
+Kombinasi fitur-fitur ini, terutama peningkatan laju pernapasan dan saturasi oksigen yang tinggi, dapat mengindikasikan adanya stres respiratorik atau kondisi yang memengaruhi fungsi paru-paru. Peningkatan laju pernapasan bisa menjadi respons terhadap hipoksia atau peningkatan beban kerja paru. Saturasi oksigen yang tinggi pada awalnya mungkin menunjukkan adaptasi tubuh, tetapi jika terus berlanjut atau dikombinasikan dengan peningkatan laju pernapasan, dapat menjadi tanda kondisi yang memerlukan perhatian medis. Kondisi DM dan peningkatan detak jantung juga dapat berkontribusi pada status klinis pasien secara keseluruhan.
+
+**Disclaimer:**
+Analisis ini merupakan interpretasi berbasis model AI dan tidak dapat digunakan sebagai diagnosis klinis.
+```"

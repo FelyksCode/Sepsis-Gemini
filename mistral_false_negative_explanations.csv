@@ -1,0 +1,213 @@
+index,structured_data,xai_strict_translation,clinical_reasoning
+2,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.10198119282722473, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.8681743144989014}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.4113718867301941}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.19078819453716278}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12062226235866547}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.09049800038337708}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 76.0, ""shap"": -1.8064512014389038}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.3, ""shap"": -0.8867283463478088}, {""feature"": ""Hemoglobin"", ""value"": 10.9, ""shap"": -0.4965474009513855}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.4520248472690582}, {""feature"": ""Hematocrit"", ""value"": 31.0, ""shap"": -0.13530641794204712}]}","Probabilitas Prediksi: 10,19%
+Fitur Pendorong (Positif):
+- Umur: 65 tahun dengan nilai SHAP: 0,87
+- Kebutuhan infus salinitas dalam 24 jam pertama: 6 dengan nilai SHAP: 0,41
+- Frekuensi Respirasi setelah 6 jam: 18 dengan nilai SHAP: 0,19
+Fitur Penurun (Negatif):
+- Tingkat Darah Oksigen pada saat hadir ke ED: -0,14 dengan nilai SHAP: -0,45
+- Hematokrit: 31 dengan nilai SHAP: -0,14","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Umur tinggi (65 tahun) dengan kondisi sepsis mungkin menyebabkan kelemahan sistem imun, yang dapat mempercepat pengembangan kanker atau membuat tanda-tanda kanker lebih sulit ditemukan.
+2. Kebutuhan infus salinitas yang tinggi dalam 24 jam pertama mungkin menunjukkan kelemahan ginjal, yang umumnya terjadi pada pasien kanker yang mengalami sepsis.
+3. Frekuensi respirasi yang tinggi setelah 6 jam dapat menunjukan kelemahan-kelemahan sistem pernafasan, yang umumnya terjadi pada pasien kanker yang mengalami sepsis.
+4. Tingkat darah oksigen rendah dan hematokrit tinggi saat hadir ke ED dapat menunjukkan kelemahan sistem pernapasan, yang umumnya tidak terjadi pada pasien kanker yang mengalami sepsis.
+
+Disclaimer:
+Ini adalah analisis AI dan harus diverifikasi oleh dokter klinis."
+10,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1504576951265335, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 141.0, ""shap"": 0.7279319167137146}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.6955609321594238}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 33.0, ""shap"": 0.15373283624649048}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.10091337561607361}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.08700694143772125}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.3058720827102661}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.6189898252487183}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.46363312005996704}, {""feature"": ""Hemoglobin"", ""value"": 11.0, ""shap"": -0.4634642004966736}, {""feature"": ""Hematocrit"", ""value"": 32.0, ""shap"": -0.30696728825569153}]}","Probabilitas Prediksi: 15,04%
+Fitur Pendorong (Positif):
+- Tingkat Raja Jantung setelah 6 jam: 141,0
+- Suhu Badan saat Hadir ke ED: 36,7
+- Frekuensi Nafas setelah 6 jam: 33,0
+Fitur Penurun (Negatif):
+- Kecacatan Akut Kerencaman (CVA): 1,0
+- Oksigenasi Darah saat Hadir ke ED: -0,5714
+- Umur Tahun: 75,0
+- Hemoglobin: 11,0
+- Hematokrit: 32,0","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Tingkat Raja Jantung setelah 6 jam yang tinggi dapat disebabkan oleh infeksi sepsis, namun juga dapat disebabkan oleh kanker onkologi. Dalam kasus ini, tingkat Raja Jantung yang tinggi mungkin diakibatkan oleh kanker onkologi pasien, yang menyebabkan sistem imun pasien terganggu dan membuatnya lebih susceptible ke infeksi sepsis.
+2. Suhu Badan saat Hadir ke ED yang normal (36,7) tidak dapat dijelaskan secara langsung dengan kondisi onkologi pasien. Namun, perubahan suhu badan dapat disebabkan oleh infeksi sepsis atau kanker onkologi yang membentuk tumor. Dalam kasus ini, suhu normal mungkin disebabkan oleh kekuatan sistem imun pasien untuk mengendalikan infeksi sepsis, tetapi masih terganggu oleh kanker onkologinya.
+3. Frekuensi Nafas setelah 6 jam yang tinggi (33,0) dapat disebabkan oleh infeksi sepsis atau kanker onkologi. Dalam kasus ini, frekuensi nafas tinggi mungkin diakibatkan oleh kegangguan sistem imun pasien yang menyebabkan pernafasan lebih banyak untuk membantu mengendalikan infeksi sepsis.
+4. Kecacatan Akut Kerencaman (CVA) yang rendah (1,0) dapat disebabkan oleh kondisi onkologi pasien yang stabil. Namun, kecacatan akut kerencaman juga dapat disebabkan oleh infeksi sepsis. Dalam kasus ini, kecacatan akut kerencaman rendah mungkin disebabkan oleh kondisi onkologi pasien yang stabil, tetapi masih terganggu oleh infeksi sepsis.
+5. Oksigenasi Darah saat Hadir ke ED yang rendah (-0,5714) dapat disebabkan oleh infeksi sepsis atau kanker onkologi. Dalam kasus ini, oksigenasi darah rendah mungkin disebabkan oleh kegangguan sistem imun pasien yang menyebabkan pernafasan lebih banyak untuk membantu mengendalikan infeksi sepsis.
+6. Umur Tahun (75,0) dan Hemoglobin (11,0), Hematokrit (32,0) yang normal dapat disebabkan oleh kondisi onkologi pasien yang stabil. Namun, umur tinggi dan nilai hemoglobin/hematokrit rendah juga dapat disebabkan oleh infeksi sepsis. Dalam kasus ini, umur tinggi dan nilai hemoglobin/hematokrit normal mungkin disebabkan oleh kekuatan sistem imun pasien yang membantu mengendalikan infeksi sepsis, tetapi masih terganggu oleh kanker onkologinya.
+Disclaimer:
+Ini adalah analisis AI dan tidak harus dijelaskan sebagai penyakit yang dikatakan pasien memiliki. Penelitian lebih lanjut dan pemeriksaan klinis terhadap pasien harus dilakukan untuk mendapatkan hasil yang akurat."
+14,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.09150657802820206, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.6792293190956116}, {""feature"": ""Creatinine"", ""value"": -0.5538461538461538, ""shap"": 0.5713496208190918}, {""feature"": ""HeartRate_6hours"", ""value"": 120.0, ""shap"": 0.4126686155796051}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.27499449253082275}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12736375629901886}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 2.625000000000011, ""shap"": -1.5133693218231201}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 3.0, ""shap"": -0.6352596879005432}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.42857142857142855, ""shap"": -0.6291462779045105}, {""feature"": ""Hematocrit"", ""value"": 34.0, ""shap"": -0.5165587067604065}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.38125455379486084}]}","Probabilitas Prediksi: 9,15%
+Fitur Pendorong (Positif):
+- Temperatur saat hadir ED: 36,5 derajat C, dengan kontribusi SHAP: 0,6792
+- Creatinine: -0,5538, dengan kontribusi SHAP: 0,5713
+- Heart Rate setelah 6 jam: 120 per menit, dengan kontribusi SHAP: 0,4127
+- Respiratory Rate setelah 6 jam: 18 per menit, dengan kontribusi SHAP: 0,2750
+- Kesadaran cerebrovascular (CVA): 0, dengan kontribusi SHAP: 0,1274
+Fitur Penurun (Negatif):
+- Temperatur setelah 6 jam: 2,63 derajat C, dengan kontribusi SHAP: -1,5134
+- Kebutuhan fluida IV dalam 24 jam pertama: 3 liter, dengan kontribusi SHAP: -0,6353
+- Oxygen saturation saat hadir ED: -0,4286, dengan kontribusi SHAP: -0,6291
+- Hematokrit: 34%, dengan kontribusi SHAP: -0,5166
+- Umur (tahun): 75 tahun, dengan kontribusi SHAP: -0,3813","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Temperatur saat hadir ED yang normal (36,5 derajat C) mungkin disebabkan oleh analgesia atau obsedasi terapi, yang dapat menghindari tanda-tanda sepsis yang umumnya kasihan dengan perubahan suhu.
+2. Creatinine yang tinggi (-0,5538) mungkin disebabkan oleh kegagalan ginjal dalam menghilangkan senyawa toksik akibat kanker, yang dapat meningkatkan risiko sepsis. Namun, dalam kasus ini, tinggi creatinine mungkin disebabkan oleh kegagalan model untuk memprediksi kondisi onkologi pasien.
+3. Heart Rate setelah 6 jam yang tinggi (120 per menit) dan Respiratory Rate juga tinggi (18 per menit) mungkin disebabkan oleh sepsis, namun kesadaran cerebrovascular (CVA) normal (0) mungkin disebabkan oleh kekuatan sistem nervus central pasien yang masih kuat. Namun, dalam kasus ini, tinggi heart rate dan respiratory rate mungkin disebabkan oleh kegagalan model untuk memprediksi kondisi onkologi pasien.
+4. Temperatur setelah 6 jam yang turun (2,63 derajat C) mungkin disebabkan oleh terapi antipyretic, namun kebutuhan fluida IV dalam 24 jam pertama yang tinggi (3 liter) mungkin disebabkan oleh dehidrasi akibat sepsis. Namun, dalam kasus ini, turunnya temperatur dan kebutuhan fluida IV mungkin disebabkan oleh kegagalan model untuk memprediksi kondisi onkologi pasien.
+5. Oxygen saturation saat hadir ED yang rendah (-0,4286) mungkin disebabkan oleh sepsis, namun hematokrit tinggi (34%) mungkin disebabkan oleh anemia akibat kanker. Namun, dalam kasus ini, rendahnya oxygen saturation dan tingginya hematokrit mungkin disebabkan oleh kegagalan model untuk memprediksi kondisi onkologi pasien.
+6. Umur (75 tahun) mungkin meningkatkan risiko sepsis, namun dalam kasus ini umur tidak dapat menghindari kegagalan model untuk memprediksi kondisi onkologi pasien.
+
+Disclaimer:
+Ini adalah analisis AI dan harus diverifikasi oleh dokter klinis sebelum digunakan dalam pengambilan keputusan medis."
+30,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.24843855202198029, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.8958047032356262}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.66261225938797}, {""feature"": ""HeartRate_6hours"", ""value"": 92.0, ""shap"": 0.6295403838157654}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.5, ""shap"": 0.35210299491882324}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.16862373054027557}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.209410548210144}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.8590721487998962}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.5718608498573303}, {""feature"": ""Hemoglobin"", ""value"": 11.9, ""shap"": -0.35676535964012146}, {""feature"": ""Hematocrit"", ""value"": 37.0, ""shap"": -0.3010943531990051}]}","Probabilitas Prediksi: 24,84%
+Fitur Pendorong (Positif):
+- Temperatur saat hadir ED: 36.5 derajat C, dengan kontribusi SHAP: 0.8958
+- Creatinine: -0.1846, dengan kontribusi SHAP: 0.6626
+- Heart Rate setelah 6 jam: 92 per detik, dengan kontribusi SHAP: 0.6295
+- Temperatur setelah 6 jam: -0.5 derajat C, dengan kontribusi SHAP: 0.3521
+- O2 saturasi setelah 6 jam: 98%, dengan kontribusi SHAP: 0.1686
+Fitur Penurun (Negatif):
+- CerebrovascularaccidentsCVA: 1, dengan kontribusi SHAP: -1.2094
+- Usia: 85 tahun, dengan kontribusi SHAP: -0.8591
+- Kebutuhan IV fluids pertama 24 jam: 2, dengan kontribusi SHAP: -0.5719
+- Hemoglobin: 11.9, dengan kontribusi SHAP: -0.3568
+- Hematokrit: 37%, dengan kontribusi SHAP: -0.3011","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Temperatur saat hadir ED dan setelah 6 jam yang normal mungkin disebabkan oleh kekuatan imun pasien kanker yang masih tinggi, melawan infeksi sepsis. Namun, perubahan suhu lebih lambat dibandingkan pasien yang tidak memiliki kanker.
+2. Creatinine yang tinggi mungkin disebabkan oleh kegagalan ginjal dalam menghilangkan senyawa toksik akibat infeksi sepsis, yang lebih rendah pada pasien kanker yang mengalami sepsis.
+3. Heart Rate setelah 6 jam yang normal mungkin disebabkan oleh kekuatan jantung dalam menangani infeksi sepsis, tetapi lebih rendah pada pasien kanker yang mengalami sepsis.
+4. O2 saturasi setelah 6 jam yang normal mungkin disebabkan oleh kekuatan sistem pernafasan dalam menangani infeksi sepsis, tetapi lebih rendah pada pasien kanker yang mengalami sepsis.
+5. Kebutuhan IV fluids pertama 24 jam yang rendah mungkin disebabkan oleh kekuatan sistem pernapasan dan jantung dalam menangani infeksi sepsis, tetapi lebih tinggi pada pasien kanker yang mengalami sepsis.
+6. Hemoglobin dan hematokrit yang normal mungkin disebabkan oleh kekuatan sistem darah dalam menangani infeksi sepsis, tetapi lebih rendah pada pasien kanker yang mengalami sepsis.
+7. Absensi CerebrovascularaccidentsCVA dan Usia tinggi mungkin disebabkan oleh kekuatan sistem nervus dalam menangani infeksi sepsis, tetapi lebih rendah pada pasien kanker yang mengalami sepsis.
+Disclaimer:
+Ini adalah analisis AI dan harus diverifikasi oleh dokter."
+31,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1108020767569542, ""top_positive"": [{""feature"": ""Hemoglobin"", ""value"": 8.9, ""shap"": 0.46977853775024414}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.37154319882392883}, {""feature"": ""Hematocrit"", ""value"": 28.0, ""shap"": 0.30281540751457214}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 12.0, ""shap"": 0.28044095635414124}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.1840236634016037}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 70.0, ""shap"": -1.6705442667007446}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -1.2819945812225342}, {""feature"": ""Creatinine"", ""value"": 1.7846153846153845, ""shap"": -0.9231255650520325}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 1.0, ""shap"": -0.1772008091211319}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": -0.08670824766159058}]}","Probabilitas Prediksi: 11,08%
+Fitur Pendorong (Positif): Hemoglobin: 8.9, Temperatur saat hadir ED: 36.7°C, Hematokrit: 28.0%, Respirasi setelah 6 jam: 12.0/menit, DM: Tidak ada (0.0).
+Fitur Penurun (Negatif): Tingkat Darah Oksigen saat setelah 6 jam: 100.0%, Hati: 70.0/menit, Usia: 85 tahun, Kreatinin: 1.7846153846153845, Kebutuhan fluida IV pertama 24 jam: 1.0, Oksigenasi saat setelah 6 jam: 100.0%.","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Hemoglobin dan Hematokrit yang rendah dapat disebabkan oleh anemia, yang umumnya terjadi pada pasien kanker akibat hemolisis (hancuran sel darah) atau anemia kasar. Namun, sepsis juga dapat menyebabkan anemia, sehingga kedua fitur ini tidak dapat mengidentifikasi kondisi onkologi yang lebih tinggi.
+2. Kreatinin yang tinggi dapat disebabkan oleh gagal otur (renal failure) akibat sepsis, namun juga dapat disebabkan oleh metastasis kanker ke organ pernafasan atau hati. Dalam kasus ini, tingkat kreatinin yang tinggi mungkin disebabkan oleh sepsis, namun tidak dapat menghindari kemungkinan metastasis kanker.
+3. Kebutuhan fluida IV pertama 24 jam yang rendah dapat disebabkan oleh dehidrasi akibat gagal otur (renal failure) atau sepsis, namun juga dapat disebabkan oleh kemungkinan terjadinya anemia kasar yang mengakibat kekurangan darah. Dalam kasus ini, kebutuhan fluida IV rendah mungkin disebabkan oleh sepsis, namun tidak dapat menghindari kemungkinan anemia kasar yang mengakibat onkologi.
+4. Oksigenasi saat setelah 6 jam yang tinggi dapat disebabkan oleh sepsis, namun juga dapat disebabkan oleh terjadinya anemia kasar atau hemolisis. Dalam kasus ini, oksigenasi tinggi mungkin disebabkan oleh sepsis, namun tidak dapat menghindari kemungkinan anemia kasar yang mengakibat onkologi.
+Disclaimer:
+Ini adalah analisis AI dan harus diverifikasi oleh dokter klinis sebelum digunakan dalam pengambilan keputusan medis."
+32,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.01421470008790493, ""top_positive"": [{""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -1.5714285714285714, ""shap"": 0.5212131142616272}, {""feature"": ""Potassium"", ""value"": 5.4, ""shap"": 0.09906574338674545}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": 0.09053236991167068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.067720428109169}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.03261268883943558}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.4, ""shap"": -1.0075851678848267}, {""feature"": ""Creatinine"", ""value"": 1.169230769230769, ""shap"": -0.7803329229354858}, {""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.7740013003349304}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.7187708020210266}, {""feature"": ""HeartRate_6hours"", ""value"": 82.0, ""shap"": -0.5593229532241821}]}","Probabilitas Prediksi: Kemungkinan terinfeksi rak adalah 1,42%.
+Fitur Pendorong (Positif):
+- O2_saturation_Upon_presentation_ED (-1,57) dengan kontribusi SHAP 0,52.
+- Potassium (5,4) dengan kontribusi SHAP 0,09.
+- O2saturation_6hours (100) dengan kontribusi SHAP 0,09.
+- CerebrovascularaccidentsCVA (0) dengan kontribusi SHAP 0,07.
+- CAD (0) dengan kontribusi SHAP 0,03.
+Fitur Penurun (Negatif):
+- Temperature_Upon_presentation_ED (39,4) dengan kontribusi SHAP -1,01.
+- Creatinine (1,17) dengan kontribusi SHAP -0,78.
+- TemperatureT_6hours (1,63) dengan kontribusi SHAP -0,77.
+- Ageyears (85) dengan kontribusi SHAP -0,72.
+- HeartRate_6hours (82) dengan kontribusi SHAP -0,56.","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. O2_saturation_Upon_presentation_ED dan O2saturation_6hours yang tinggi mungkin menunjukkan kekuatan sistem oksigenasi pasien, namun dalam kasus onkologi dengan sepsis, sistem oksigenasi sering terganggu.
+2. Potassium tinggi dan CerebrovascularaccidentsCVA nol mungkin menunjukkan kekuatan sistem endokrine pasien, namun dalam kasus onkologi dengan sepsis, sistem endokrine sering terganggu.
+3. Temperature_Upon_presentation_ED dan TemperatureT_6hours yang rendah mungkin menunjukkan kekuatan sistem thermoregulasi pasien, namun dalam kasus onkologi dengan sepsis, sistem thermoregulasi sering terganggu.
+4. Age years tinggi dan HeartRate_6hours rendah mungkin menunjukkan kekuatan sistem kardiovaskuler pasien, namun dalam kasus onkologi dengan sepsis, sistem kardiovaskuler sering terganggu.
+5. CAD nol mungkin menunjukkan kekuatan sistem kardiovaskuler pasien, tetapi dalam kasus onkologi dengan sepsis, risiko infarksi jantung lebih tinggi.
+6. Creatinine tinggi mungkin menunjukkan kekuatan sistem renal pasien, namun dalam kasus onkologi dengan sepsis, sistem renal sering terganggu.
+Disclaimer:
+Ini adalah analisis AI dan harus diverifikasi oleh dokter."
+33,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.15991643071174622, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.1725165843963623}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.6656238436698914}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.24999999999999556, ""shap"": 0.16591142117977142}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.1093570664525032}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1084824651479721}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 73.0, ""shap"": -1.9689861536026}, {""feature"": ""Creatinine"", ""value"": 3.8769230769230774, ""shap"": -0.640989363193512}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.4386214315891266}, {""feature"": ""Hematocrit"", ""value"": 36.0, ""shap"": -0.41667452454566956}, {""feature"": ""Hemoglobin"", ""value"": 12.2, ""shap"": -0.19267487525939941}]}","Probabilitas Prediksi: 15,99%
+Fitur Pendorong (Positif):
+- Umur: 65 tahun dengan SHAP: 1.17
+- O2_saturation_Upon_presentation_ED: 0.57 dengan SHAP: 0.67
+- Temperatur setelah 6 jam: -0.25 dengan SHAP: 0.17
+- Frekuensi Respirasi setelah 6 jam: 18 dengan SHAP: 0.11
+- CerebrovascularaccidentsCVA: 0 dengan SHAP: 0.11
+Fitur Penurun (Negatif):
+- HeartRate_6hours: 73 dengan SHAP: -1.97
+- Creatinine: 3.88 dengan SHAP: -0.64
+- IVfluids_requirement_first_24hrs: 2 dengan SHAP: -0.44
+- Hematokrit: 36 dengan SHAP: -0.42
+- Hemoglobin: 12.2 dengan SHAP: -0.20","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Umur tinggi (65 tahun) dengan kondisi sepsis mungkin menyebabkan perubahan lebih subtil dalam tanda-tanda vital, seperti O2 saturation yang rendah dan frekuensi respirasi yang tinggi. Hal ini dapat disebabkan oleh kekurangan fungsi organ yang umum terjadi pada individu lansia saat mengalami sepsis.
+2. Kondisi onkologi (kanker) dapat menyebabkan imun pasien lemah, sehingga mereka lebih susceptible ke infeksi dan sepsis. Namun, fitur-fitur yang dominan dalam profil fisiologis ini tidak menggambarkan tanda-tanda kanker seperti jumlah sel kanker atau tingkat enzim tumor marker.
+3. Heart Rate yang rendah (73) dan creatinine yang tinggi (3.88) mungkin menunjukkan kekurangan fungsi nefron, yang umum terjadi pada individu dengan kondisi sepsis. Namun, kasus ini memiliki riwayat onkologi, yang mungkin menyebabkan kekurangan fungsi nefron juga disebabkan oleh kanker sendiri.
+4. IV fluids requirement dan hematokrit/hemoglobin yang rendah mungkin menunjukkan kekurangan darah, yang umum terjadi pada individu dengan kondisi sepsis. Namun, kasus ini memiliki riwayat onkologi, yang mungkin menyebabkan kekurangan darah juga disebabkan oleh kanker sendiri.
+Disclaimer:
+Ini adalah analisis AI dan tidak harus dianggap sebagai pengetahuan medis profesional. Harap melakukan verifikasi dengan dokter atau ahli klinis terkait untuk mendapatkan informasi yang akurat."
+41,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08910577744245529, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.9358273148536682}, {""feature"": ""HeartRate_6hours"", ""value"": 107.0, ""shap"": 0.6936783194541931}, {""feature"": ""Potassium"", ""value"": 48.0, ""shap"": 0.18136408925056458}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.10494783520698547}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.07149428874254227}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.8554013967514038}, {""feature"": ""Creatinine"", ""value"": 0.676923076923077, ""shap"": -0.7969745993614197}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 38.2, ""shap"": -0.7140799760818481}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.0, ""shap"": -0.5434844493865967}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 4.0, ""shap"": -0.40927207469940186}]}","Probabilitas Prediksi: Kemungkinan terinfeksi rahasia adalah 8,91%.
+Fitur Pendorong (Positif): Usia (Ageyears) sebesar 65 tahun dengan nilai SHAP 0,93; Hati (HeartRate_6hours) sebesar 107 per menit dengan nilai SHAP 0,70; Kalium (Potassium) sebesar 48 dengan nilai SHAP 0,18; Kadar Oksigen (O2saturation_6hours) sebesar 98% dengan nilai SHAP 0,07.
+Fitur Penurun (Negatif): Suhu (TemperatureT_6hours) sebesar 1,63°C dengan nilai SHAP -0,86; Kreatinin sebesar 0,68 dengan nilai SHAP -0,80; Suhu saat hadir ke ED (Temperature_Upon_presentation_ED) sebesar 38,2°C dengan nilai SHAP -0,71; Kadar Oksigen saat hadir ke ED (O2_saturation_Upon_presentation_ED) sebesar 0% dengan nilai SHAP -0,54; Kebutuhan fluida IV dalam 24 jam pertama (IVfluids_requirement_first_24hrs) sebesar 4 dengan nilai SHAP -0,41.","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Usia tinggi (65 tahun) dapat menyebabkan kelemahan sistem imun, yang lebih mudah terinfeksi sepsis. Namun, kasus ini mengalami tingkat kelemahan sistem imun yang lebih tinggi akibat riwayat onkologi (kanker).
+2. Kadar oksigen normal (98%) dan suhu saat hadir ke ED (38,2°C) mungkin disebabkan oleh analgesia atau antibiotik yang diberikan sebelumnya, yang dapat menyembunyikan tanda-tanda sepsis. Namun, kasus ini mengalami tingkat infeksi rahasia yang lebih tinggi akibat riwayat onkologi (kanker).
+3. Kreatinin normal (0,68) dapat disebabkan oleh kekuatan organ ginjal yang masih kuat, namun kasus ini mengalami tingkat infeksi rahasia yang lebih tinggi akibat riwayat onkologi (kanker).
+4. Kebutuhan fluida IV dalam 24 jam pertama (4) dapat disebabkan oleh dehidrasi akibat infeksi rahasia, namun kasus ini mengalami tingkat kelemahan sistem imun yang lebih tinggi akibat riwayat onkologi (kanker).
+Disclaimer:
+Ini adalah analisis AI. Penelitian terkait kasus ini perlu dilakukan dengan pendekatan medis profesional dan pengecekan data yang lebih lengkap."
+43,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08818862587213516, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 55.0, ""shap"": 1.037327527999878}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.652049720287323}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3787826597690582}, {""feature"": ""Potassium"", ""value"": 5.0, ""shap"": 0.1336798071861267}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1318213939666748}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 80.0, ""shap"": -1.753333330154419}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.8, ""shap"": -0.7487594485282898}, {""feature"": ""Hematocrit"", ""value"": 38.0, ""shap"": -0.6736560463905334}, {""feature"": ""Hemoglobin"", ""value"": 12.8, ""shap"": -0.6704531908035278}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.5731009840965271}]}","Probabilitas Prediksi: 8,81%
+Fitur Pendorong (Positif):
+- Umur: 55 tahun dengan nilai SHAP: 1.037
+- Kreatinin: -0.1846 dengan nilai SHAP: 0.652
+- Kebutuhan Fluida IV dalam 24 jam pertama: 6 dengan nilai SHAP: 0.379
+- Kalium: 5 dengan nilai SHAP: 0.134
+- Stroke (infarkt mesejerebrovaskular): 0 dengan nilai SHAP: 0.132
+Fitur Penurun (Negatif):
+- Nilai Tinggi Darah (HR) setelah 6 jam: 80 dengan nilai SHAP: -1.753
+- Suhu pada saat datang ke ED: 39,8 derajat Celcius dengan nilai SHAP: -0.749
+- Hematokrit: 38% dengan nilai SHAP: -0.674
+- Hemoglobin: 12,8 g/dl dengan nilai SHAP: -0.670
+- Oksigenasi Saturasi pada saat datang ke ED: -0.143 dengan nilai SHAP: -0.573","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Umur tinggi (55 tahun) dengan kasus onkologi mungkin menyebabkan kelemahan sistem imun, yang dapat memperkuat tanda-tanda sepsis. Kreatinin tinggi (-0.1846) dan kebutuhan fluida IV dalam 24 jam pertama (6 ml/min) mungkin akibat dari kelemahan sistem organ ginjal yang biasanya terjadi pada pasien kanker.
+2. Nilai tinggi darah (HR) setelah 6 jam normal (80 bpm) dan suhu pada saat datang ke ED (39,8°C) mungkin akibat dari perawatan sepsis yang dilakukan sebelumnya. Namun, kondisi onkologi mungkin menyebabkan tinggi HR dan suhu rendah sebagai tanda-tanda kanker.
+3. Hematokrit (38%) dan hemoglobin (12,8 g/dl) normal mungkin akibat dari perawatan sepsis yang dilakukan sebelumnya. Namun, kondisi onkologi mungkin menyebabkan anemia, yang dapat disebabkan oleh kelebihan pembentukan sel kanker atau hemolisis (hambatan hemoglobin).
+4. Oksigenasi Saturasi pada saat datang ke ED (-0.143) mungkin akibat dari perawatan sepsis yang dilakukan sebelumnya. Namun, kondisi onkologi mungkin menyebabkan hipoksia (kekurangan oksigen dalam darah), yang dapat disebabkan oleh pembentukan sel kanker atau infarkt jantung.
+Disclaimer:
+Ini adalah analisis AI dan tidak menjadi ganti-ganti dari penilaian klinis oleh dokter. Perhatikan bahwa model ini menggunakan data statistik dan tidak memiliki pemahaman tentang keadaan pasien secara langsung."
+46,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.23455090820789337, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.0240241289138794}, {""feature"": ""HeartRate_6hours"", ""value"": 106.0, ""shap"": 0.5739275813102722}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 11.0, ""shap"": 0.5544986128807068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.11215238273143768}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.05731942132115364}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 3.000000000000009, ""shap"": -1.3331882953643799}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 25.0, ""shap"": -0.535804271697998}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.42841073870658875}, {""feature"": ""Creatinine"", ""value"": 0.49230769230769245, ""shap"": -0.36567190289497375}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.6, ""shap"": -0.23041030764579773}]}","Probabilitas Prediksi: 23,46%
+Fitur Pendorong (Positif):
+- Umur (Ageyears) dengan nilai 65.0 memiliki kontribusi +1,0240241289138794 ke prediksi positif.
+- Tingkat Raja Hati (HeartRate_6hours) dengan nilai 106.0 memiliki kontribusi +0,5739275813102722 ke prediksi positif.
+- Kebutuhan Fluida IV dalam 24 jam pertama (IVfluids_requirement_first_24hrs) dengan nilai 11.0 memiliki kontribusi +0,5544986128807068 ke prediksi positif.
+- Fitur CerebrovascularaccidentsCVA dengan nilai 0.0 memiliki kontribusi +0,11215238273143768 ke prediksi positif.
+- Oksigenasi (O2saturation_6hours) dengan nilai 98.0 memiliki kontribusi +0,05731942132115364 ke prediksi positif.
+Fitur Penurun (Negatif):
+- Suhu Tubuh (TemperatureT_6hours) dengan nilai 3.000000000000009 memiliki kontribusi -1,3331882953643799 ke prediksi negatif.
+- Frekuensi Nafas (RespiratoryRate_6hours) dengan nilai 25.0 memiliki kontribusi -0,535804271697998 ke prediksi negatif.
+- Oksigenasi saat hadir di ED (O2_saturation_Upon_presentation_ED) dengan nilai -0.5714285714285714 memiliki kontribusi -0,42841073870658875 ke prediksi negatif.
+- Kreatinin dengan nilai 0.49230769230769245 memiliki kontribusi -0,36567190289497375 ke prediksi negatif.
+- Suhu saat hadir di ED (Temperature_Upon_presentation_ED) dengan nilai 37.6 memiliki kontribusi -0,23041030764579773 ke prediksi negatif.","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Umur tinggi pasien dengan nilai 65.0 memiliki kontribusi +1,0240241289138794 ke prediksi positif sepsis, yang mungkin disebabkan oleh kemungkinan lebih tinggi terjadinya infeksi pada individu dengan imun sistem yang kurang efektif akibat usia lama. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi.
+2. Tingkat Raja Hati (HeartRate_6hours) dengan nilai 106.0 memiliki kontribusi +0,5739275813102722 ke prediksi positif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi.
+3. Kebutuhan Fluida IV dalam 24 jam pertama (IVfluids_requirement_first_24hrs) dengan nilai 11.0 memiliki kontribusi +0,5544986128807068 ke prediksi positif sepsis, yang mungkin disebabkan olekurangnya fluida dalam tubuh pasien akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi.
+4. Suhu Tubuh (TemperatureT_6hours) dengan nilai 3.000000000000009 memiliki kontribusi -1,3331882953643799 ke prediksi negatif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi dengan suhu tubuh normal.
+5. Frekuensi Nafas (RespiratoryRate_6hours) dengan nilai 25.0 memiliki kontribusi -0,535804271697998 ke prediksi negatif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi dengan frekuensi nafas normal.
+6. Oksigenasi saat hadir di ED (O2_saturation_Upon_presentation_ED) dengan nilai -0.5714285714285714 memiliki kontribusi -0,42841073870658875 ke prediksi negatif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi dengan oksigenasi normal.
+7. Kreatinin dengan nilai 0.49230769230769245 memiliki kontribusi -0,36567190289497375 ke prediksi negatif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi dengan creatinine normal.
+8. Suhu saat hadir di ED (Temperature_Upon_presentation_ED) dengan nilai 37.6 memiliki kontribusi -0,23041030764579773 ke prediksi negatif sepsis, yang mungkin disebabkan oleh tingkat aktivitas sistem imun yang tinggi akibat infeksi. Namun, dalam kasus ini pasien memiliki riwayat onkologi (kanker), yang mungkin menyebabkan kelemahan imun secara umum dan lebih mudah terinfeksi dengan suhu tubuh normal.
+Disclaimer:
+Ini adalah analisis AI. Hasil ini harus diverifikasi oleh ahli klinis sebelum digunakan dalam pengambilan keputusan medis."
+58,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.259272962808609, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 108.0, ""shap"": 0.7504772543907166}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.4576931297779083}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3397447168827057}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.12500000000000222, ""shap"": 0.14484812319278717}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.13386422395706177}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.2, ""shap"": -1.219091534614563}, {""feature"": ""Hemoglobin"", ""value"": 11.4, ""shap"": -0.5487853288650513}, {""feature"": ""Creatinine"", ""value"": 2.2153846153846155, ""shap"": -0.5009930729866028}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.3401971459388733}, {""feature"": ""Hematocrit"", ""value"": 33.0, ""shap"": -0.3269422948360443}]}","Probabilitas Prediksi: 25,93%
+Fitur Pendorong (Positif):
+- HeartRate_6hours: 108.0
+- O2_saturation_Upon_presentation_ED: 0.5714
+- IVfluids_requirement_first_24hrs: 6.0
+- TemperatureT_6hours: -0.125
+- CerebrovascularaccidentsCVA: 0.0
+Fitur Penurun (Negatif):
+- Temperature_Upon_presentation_ED: 39.2
+- Hemoglobin: 11.4
+- Creatinine: 2.215
+- Ageyears: 75.0
+- Hematocrit: 33.0","Analisis Kegagalan Model (False Negative):
+Penalaran Klinis Fisiologis:
+1. Tinggi Darah Oksigen (O2_saturation_Upon_presentation_ED) yang rendah (0.5714) mungkin disebabkan oleh kekurangan darah dalam kondisi sepsis, yang dapat disebabkan oleh hemorragia atau infeksi yang menyebabkan pengurangan produksi plasma. Kekurangan darah dapat mengakibatkan kekurangan oksigen dalam tubuh, yang dapat disebabkan oleh kondisi onkologi pasien kanker yang mengalami sepsis.
+2. Kecepatan Jantung (HeartRate_6hours) yang tinggi (108.0) mungkin disebabkan oleh infeksi atau kekurangan darah, yang dapat menyebabkan kardiac failure. Kondisi onkologi pasien kanker yang mengalami sepsis dapat meningkatkan risiko terjadinya infeksi dan kekurangan darah.
+3. Kebutuhan Fluid pada 24 jam pertama (IVfluids_requirement_first_24hrs) yang tinggi (6.0) mungkin disebabkan oleh kekurangan fluid dalam kondisi sepsis, yang dapat disebabkan oleh hemorragia atau infeksi yang menyebabkan pengurangan produksi plasma. Kondisi onkologi pasien kanker yang mengalami sepsis dapat meningkatkan risiko terjadinya hemorragia dan kekurangan fluid.
+4. Temperatur (Temperature_Upon_presentation_ED) yang tinggi (39.2) mungkin disebabkan oleh infeksi atau kondisi onkologi pasien kanker yang mengalami sepsis. Namun, pada saat ini, temperatur yang tinggi dapat diurai sebagai tanda positif untuk kondisi sepsis.
+5. Hemoglobin (11.4) dan Hematokrit (33.0) yang rendah mungkin disebabkan oleh kekurangan darah dalam kondisi sepsis, yang dapat disebabkan oleh hemorragia atau infeksi yang menyebabkan pengurangan produksi plasma. Kondisi onkologi pasien kanker yang mengalami sepsis dapat meningkatkan risiko terjadinya hemorragia dan kekurangan darah.
+6. Creatinine (2.215) yang tinggi mungkin disebabkan oleh kesulitan ginjal dalam membuang senyawa buangan, yang dapat disebabkan oleh infeksi atau kondisi onkologi pasien kanker yang mengalami sepsis.
+7. Umur (Ageyears) tinggi (75.0) mungkin meningkatkan risiko terjadinya sepsis, serta mempengaruhi respons imun dan kekuatan tubuh pasien kanker.
+
+Disclaimer:
+Ini adalah analisis AI yang dapat membantu dalam mengerti kegagalan model dalam mendeteksi kondisi onkologi pasien di tengah kondisi sepsis yang dialaminya. Namun, penelitian lebih lanjut dan pengujian klinis terhadap data pasien yang lebih besar dibutuhkan untuk memastikan keakuratan analisis ini."

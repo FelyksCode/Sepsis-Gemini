@@ -1,0 +1,8 @@
+index,feature_accuracy,direction_correctness,shap_hallucination_count,shap_completeness,shap_final_score,clinical_correctness,clinical_hallucination_count,clinical_relevance,clinical_completeness,clinical_safety,clinical_final_score
+43,2,2,1,2,6.67,0,0,2,0,2,5.0
+56,2,2,0,2,10.0,0,0,2,0,2,5.0
+58,2,2,0,2,6.67,0,0,2,0,2,5.0
+64,2,2,0,2,6.67,0,0,2,0,2,5.0
+67,2,2,0,2,8.33,0,0,2,0,2,5.0
+81,2,2,0,2,6.67,0,0,2,0,2,5.0
+84,2,2,0,2,6.67,0,0,2,0,2,5.0

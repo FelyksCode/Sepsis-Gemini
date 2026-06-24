@@ -1,0 +1,156 @@
+index,structured_data,xai_strict_translation,clinical_reasoning
+2,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.10198119282722473, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.8681743144989014}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.4113718867301941}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.19078819453716278}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12062226235866547}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.09049800038337708}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 76.0, ""shap"": -1.8064512014389038}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.3, ""shap"": -0.8867283463478088}, {""feature"": ""Hemoglobin"", ""value"": 10.9, ""shap"": -0.4965474009513855}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.4520248472690582}, {""feature"": ""Hematocrit"", ""value"": 31.0, ""shap"": -0.13530641794204712}]}","Probabilitas Prediksi: 0,102  
+Fitur Pendorong (Positif): Ageyears (65,0), IVfluids_requirement_first_24hrs (6,0), RespiratoryRate_6hours (18,0), CerebrovascularaccidentsCVA (0,0), dan DM (0,0)  
+Fitur Penurun (Negatif): HeartRate_6hours (76,0), Temperature_Upon_presentation_ED (39,3), Hemoglobin (10,9), O2_saturation_Upon_presentation_ED (-0,142857), dan Hematocrit (31,0)","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis:  
+Kondisi sepsis pada pasien kanker menginduksi anemia (Hemoglobin 10,9 g/dL) dan demam (39,3°C) yang menjadi fitur negatif pada model. Namun, pada kanker, anemia dan demam merupakan respons imunomodulasi akibat tumor, sehingga fitur ini mengelabui model yang mengaitkan kondisi tersebut dengan respons imun non-kanker. Data pelatihan model tidak mempertimbangkan interaksi kanker-sepsis, menyebabkan prediksi false negative.  
+
+Disclaimer: Ini adalah analisis AI."
+10,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1504576951265335, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 141.0, ""shap"": 0.7279319167137146}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.6955609321594238}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 33.0, ""shap"": 0.15373283624649048}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.10091337561607361}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.08700694143772125}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.3058720827102661}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.6189898252487183}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.46363312005996704}, {""feature"": ""Hemoglobin"", ""value"": 11.0, ""shap"": -0.4634642004966736}, {""feature"": ""Hematocrit"", ""value"": 32.0, ""shap"": -0.30696728825569153}]}","Probabilitas Prediksi: 15,05%  
+Fitur Pendorong (Positif): HeartRate_6hours (141,0), Temperature_Upon_presentation_ED (36,7), RespiratoryRate_6hours (33,0), CAD (0,0), O2saturation_6hours (98,0)  
+Fitur Penurun (Negatif): CerebrovascularaccidentsCVA (1,0), O2_saturation_Upon_presentation_ED (-0,57), Ageyears (75,0), Hemoglobin (11,0), Hematocrit (32,0)","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis: Pola vital pasien (hipotermia 36,7°C, tachikardia 141 bpm, tachipnea 33x/menit, anemia Hb 11 g/dL) merupakan manifestasi kanker yang umum, namun hipotermia merupakan presentasi atipikal sepsis (biasanya febris). Model XGBoost menganggap pola ini sebagai non-kanker akibat kurangnya data pelatihan pada kanker dengan sepsis hipotermik. Respons imun kanker yang terhambat menghasilkan inflamasi lemah, sehingga probabilitas prediksi (15,05%) terlalu rendah.  
+
+Disclaimer: Ini adalah analisis AI, bukan diagnosis medis."
+14,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.09150657802820206, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.6792293190956116}, {""feature"": ""Creatinine"", ""value"": -0.5538461538461538, ""shap"": 0.5713496208190918}, {""feature"": ""HeartRate_6hours"", ""value"": 120.0, ""shap"": 0.4126686155796051}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.27499449253082275}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12736375629901886}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 2.625000000000011, ""shap"": -1.5133693218231201}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 3.0, ""shap"": -0.6352596879005432}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.42857142857142855, ""shap"": -0.6291462779045105}, {""feature"": ""Hematocrit"", ""value"": 34.0, ""shap"": -0.5165587067604065}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.38125455379486084}]}","Probabilitas Prediksi: 9,15%
+
+Fitur Pendorong (Positif):
+- Temperature_Upon_presentation_ED dengan nilai 36,5
+- Creatinine dengan nilai -0,5538
+- HeartRate_6hours dengan nilai 120,0
+- RespiratoryRate_6hours dengan nilai 18,0
+- CerebrovascularaccidentsCVA dengan nilai 0,0
+
+Fitur Penurun (Negatif):
+- TemperatureT_6hours dengan nilai 2,625
+- IVfluids_requirement_first_24hrs dengan nilai 3,0
+- O2_saturation_Upon_presentation_ED dengan nilai -0,42857142857142855
+- Hematocrit dengan nilai 34,0
+- Ageyears dengan nilai 75,0","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis:  
+Sepsis menginduksi respons fisiologis seperti tachikardia (HR 120), anemia (Hematocrit 34%), dan hipoksia yang serupa dengan pola klinis pasien kanker. Model XGBoost, yang dilatih pada dataset tanpa interaksi sepsis-onkologi, menganggap fitur seperti creatinine rendah (-0,55) dan RR normal (18) sebagai indikator non-kanker. Respons imun kanker yang terhambat oleh infeksi sepsis mengurangi biomarker kanker (misalnya, produksi sel darah merah), sehingga fitur fisiologis dominan berada di rentang normal non-kanker. Dengan demikian, model gagal membedakan pola fisiologis sepsis yang umum pada pasien kanker.  
+
+Disclaimer:  
+Ini adalah analisis AI dan tidak menggantikan keputusan klinis."
+30,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.24843855202198029, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.8958047032356262}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.66261225938797}, {""feature"": ""HeartRate_6hours"", ""value"": 92.0, ""shap"": 0.6295403838157654}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.5, ""shap"": 0.35210299491882324}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.16862373054027557}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.209410548210144}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.8590721487998962}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.5718608498573303}, {""feature"": ""Hemoglobin"", ""value"": 11.9, ""shap"": -0.35676535964012146}, {""feature"": ""Hematocrit"", ""value"": 37.0, ""shap"": -0.3010943531990051}]}","Probabilitas Prediksi:
+24,84%
+
+Fitur Pendorong (Positif):
+- Suhu saat presentasi di Rawat Darurat: 36,5
+- Kreatinin: -0,1846
+- Detak jantung 6 jam: 92,0
+- Suhu T 6 jam: -0,5
+- Kadar oksigen saturasi 6 jam: 98,0
+
+Fitur Penurun (Negatif):
+- Kecelakaan serebrovaskular: 1,0
+- Usia: 85,0
+- Kebutuhan cairan IV dalam 24 jam pertama: 2,0
+- Hemoglobin: 11,9
+- Hematokrit: 37,0","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis:  
+Dalam pasien kanker dengan sepsis, respons imun hiposensitif mengakibatkan hipotermia (suhu 36,5°C) dan anemia (Hb 11,9), yang pada model XGBoost dianggap fitur penurun kanker. Namun, hipotermia dan anemia merupakan respons klinis kanker yang terkait dengan sepsis imunomodulasi. Model gagal mendeteksi kanker karena pelatihan data tidak mencakup kasus kanker dengan presentasi fisiologis atipikal ini, sehingga menghasilkan false negative pada prediksi kanker.  
+
+Disclaimer:  
+Ini adalah analisis AI, bukan diagnosis medis."
+31,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1108020767569542, ""top_positive"": [{""feature"": ""Hemoglobin"", ""value"": 8.9, ""shap"": 0.46977853775024414}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.37154319882392883}, {""feature"": ""Hematocrit"", ""value"": 28.0, ""shap"": 0.30281540751457214}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 12.0, ""shap"": 0.28044095635414124}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.1840236634016037}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 70.0, ""shap"": -1.6705442667007446}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -1.2819945812225342}, {""feature"": ""Creatinine"", ""value"": 1.7846153846153845, ""shap"": -0.9231255650520325}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 1.0, ""shap"": -0.1772008091211319}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": -0.08670824766159058}]}","Probabilitas Prediksi: 11,08%  
+Fitur Pendorong (Positif): Hemoglobin (8,9), Temperature_Upon_presentation_ED (36,7), Hematocrit (28,0), RespiratoryRate_6hours (12,0), DM (0,0) dengan kontribusi SHAP masing-masing 0,469; 0,371; 0,302; 0,280; 0,184.  
+Fitur Penurun (Negatif): HeartRate_6hours (70,0), Ageyears (85,0), Creatinine (1,7846), IVfluids_requirement_first_24hrs (1,0), O2saturation_6hours (100,0) dengan kontribusi SHAP masing-masing -1,670; -1,282; -0,923; -0,177; -0,087.","Analysis of Model Failure (False Negative):  
+Clinical Physiological Reasoning:  
+The patient’s anemia (Hb 8.9, Hct 28.0) and mild sepsis (temp 36.7°C, RR 12) are common in oncology, yet the model’s low probability (11.08%) was dominated by negative features: advanced age (85 years) and elevated creatinine (1.7846), indicating renal compromise. Sepsis in cancer patients typically involves immunosuppression, but the model prioritized age-related renal dysfunction over oncology-specific markers, leading to false negative classification. This highlights the model’s inability to integrate anemia and mild sepsis as indicators of underlying malignancy in this clinical context.  
+
+Disclaimer: This is an AI analysis."
+32,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.01421470008790493, ""top_positive"": [{""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -1.5714285714285714, ""shap"": 0.5212131142616272}, {""feature"": ""Potassium"", ""value"": 5.4, ""shap"": 0.09906574338674545}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": 0.09053236991167068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.067720428109169}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.03261268883943558}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.4, ""shap"": -1.0075851678848267}, {""feature"": ""Creatinine"", ""value"": 1.169230769230769, ""shap"": -0.7803329229354858}, {""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.7740013003349304}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.7187708020210266}, {""feature"": ""HeartRate_6hours"", ""value"": 82.0, ""shap"": -0.5593229532241821}]}","Probabilitas Prediksi: 1,42%
+
+Fitur Pendorong (Positif):
+- O2_saturation_Upon_presentation_ED: -1,57 (SHAP: 0,52)
+- Potassium: 5,4 (SHAP: 0,099)
+- O2saturation_6hours: 100,0 (SHAP: 0,0905)
+- CerebrovascularaccidentsCVA: 0,0 (SHAP: 0,0677)
+- CAD: 0,0 (SHAP: 0,0326)
+
+Fitur Penurun (Negatif):
+- Temperature_Upon_presentation_ED: 39,4 (SHAP: -1,007)
+- Creatinine: 1,169 (SHAP: -0,780)
+- TemperatureT_6hours: 1,625 (SHAP: -0,774)
+- Ageyears: 85,0 (SHAP: -0,719)
+- HeartRate_6hours: 82,0 (SHAP: -0,559)","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis: Pola vital sepsis (suhu 39,4°C, kreatinin 1,169) menghasilkan respons inflamasi akut yang tidak konsisten dengan ciri kanker. Kanker biasanya terkait dengan hipoksia dan penurunan fungsi imun, tetapi kondisi sepsis mengubah respons fisiologis menjadi pola inflamasi berlebihan yang dianggap model sebagai indikator non-kanker. Usia lanjut (85 tahun) dan ritme jantung normal (82 bpm) juga mengelabui pola kanker. Akibatnya, model gagal mendeteksi riwayat kanker.  
+
+Disclaimer: Ini adalah analisis AI."
+33,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.15991643071174622, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.1725165843963623}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.6656238436698914}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.24999999999999556, ""shap"": 0.16591142117977142}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.1093570664525032}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1084824651479721}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 73.0, ""shap"": -1.9689861536026}, {""feature"": ""Creatinine"", ""value"": 3.8769230769230774, ""shap"": -0.640989363193512}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.4386214315891266}, {""feature"": ""Hematocrit"", ""value"": 36.0, ""shap"": -0.41667452454566956}, {""feature"": ""Hemoglobin"", ""value"": 12.2, ""shap"": -0.19267487525939941}]}","Probabilitas prediksi: 0.1599
+
+Fitur yang mendorong prediksi positif:
+- Ageyears: 65.0 (SHAP: 1.17)
+- O2_saturation_Upon_presentation_ED: 0.571 (SHAP: 0.666)
+- TemperatureT_6hours: -0.25 (SHAP: 0.109)
+- CerebrovascularaccidentsCVA: 0.0 (SHAP: 0.108)
+
+Fitur yang mengurangi prediksi positif:
+- HeartRate_6hours: 73.0 (SHAP: -1.969)
+- Creatinine: 3.877 (SHAP: -0.641)
+- IVfluids_requirement_first_24hrs: 2.0 (SHAP: -0.439)
+- Hematocrit: 36.0 (SHAP: -0.417)
+- Hemoglobin: 12.2 (SHAP: -0.193)","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis:  
+Kanker mengakibatkan anemia (Hemoglobin 12,2 dan Hematocrit 36,0) serta gangguan ginjal (Creatinine 3,877), yang berkontribusi pada penurunan nilai SHAP. Namun, respons imun kanker yang terdistorsi menghasilkan hipotermia (TemperatureT_6hours: -0,25) dan hipoksia (O2_saturation_Upon_presentation_ED: 0,571), yang model interpretasi sebagai kondisi sepsis ringan. Pola ini mengelabui model karena kanker mengurangi aktivitas inflamasi sistemik, sehingga tidak memicu prediksi sepsis yang signifikan.  
+
+Disclaimer:  
+Ini adalah analisis AI dan tidak menggantikan keputusan klinis."
+41,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08910577744245529, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.9358273148536682}, {""feature"": ""HeartRate_6hours"", ""value"": 107.0, ""shap"": 0.6936783194541931}, {""feature"": ""Potassium"", ""value"": 48.0, ""shap"": 0.18136408925056458}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.10494783520698547}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.07149428874254227}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.8554013967514038}, {""feature"": ""Creatinine"", ""value"": 0.676923076923077, ""shap"": -0.7969745993614197}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 38.2, ""shap"": -0.7140799760818481}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.0, ""shap"": -0.5434844493865967}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 4.0, ""shap"": -0.40927207469940186}]}","Probabilitas Prediksi: 8,91%
+
+Fitur Pendorong (Positif): Ageyears (65,0), HeartRate_6hours (107,0), Potassium (48,0), CerebrovascularaccidentsCVA (0,0), O2saturation_6hours (98,0)
+
+Fitur Penurun (Negatif): TemperatureT_6hours (1,625), Creatinine (0,6769), Temperature_Upon_presentation_ED (38,2), O2_saturation_Upon_presentation_ED (0,0), IVfluids_requirement_first_24hrs (4,0)","Analisis Kegagalan Model (False Negative):  
+Model XGBoost gagal mendeteksi riwayat kanker karena fitur fisiologis sepsis dominan (demam, hipokalemia, peningkatan detak jantung) mengelabui prediksi. Pola ini umum pada pasien kanker dengan sepsis, sehingga model lebih berfokus pada respons sepsis daripada tanda kanker spesifik.
+
+Penalaran Klinis Fisiologis:  
+Dalam pasien kanker, sepsis menginduksi respons imun sistemik yang menghasilkan demam (38,2°C), hipokalemia (48 mmol/L), dan peningkatan detak jantung (107 bpm). Fitur ini lebih kuat dalam prediksi model daripada indikator kanker (misalnya, kadar protein tumor), sehingga model mengklasifikasikan sebagai non-kanker.
+
+Disclaimer: Ini adalah analisis AI dan tidak menggantikan keputusan klinis."
+43,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08818862587213516, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 55.0, ""shap"": 1.037327527999878}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.652049720287323}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3787826597690582}, {""feature"": ""Potassium"", ""value"": 5.0, ""shap"": 0.1336798071861267}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1318213939666748}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 80.0, ""shap"": -1.753333330154419}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.8, ""shap"": -0.7487594485282898}, {""feature"": ""Hematocrit"", ""value"": 38.0, ""shap"": -0.6736560463905334}, {""feature"": ""Hemoglobin"", ""value"": 12.8, ""shap"": -0.6704531908035278}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.5731009840965271}]}","Probabilitas Prediksi: 8,82%
+
+Fitur Pendorong (Positif): Ageyears sebesar 55,0; Creatinine sebesar -0,1846; IVfluids_requirement_first_24hrs sebesar 6,0; Potassium sebesar 5,0; dan CerebrovascularaccidentsCVA sebesar 0,0.
+
+Fitur Penurun (Negatif): HeartRate_6hours sebesar 80,0; Temperature_Upon_presentation_ED sebesar 39,8; Hematocrit sebesar 38,0; Hemoglobin sebesar 12,8; dan O2_saturation_Upon_presentation_ED sebesar -0,142857.","The model's low probability of cancer (8.82%) was influenced by physiological features that typically associate with non-cancer states, such as age 55 (a risk factor but interpreted as non-cancer), normal potassium, and absence of cerebrovascular accidents. Conversely, sepsis-related signs (fever, anemia) should increase cancer probability but were overshadowed by the model's emphasis on stability indicators (e.g., normal heart rate). This imbalance resulted in a false negative, where the model failed to detect cancer despite clinical sepsis. The model's focus on non-cancer indicators (e.g., physiological stability) masked the underlying oncology, leading to deception in this context. 
+
+**Key Insight**: In advanced cancer, sepsis often arises from immunosuppression, but the model's training prioritized non-cancer physiological patterns, causing it to misclassify the patient as non-cancer despite critical cancer-related complications. This highlights the need for models to integrate context-specific disease pathways (e.g., cancer-induced sepsis) to avoid false negatives."
+46,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.23455090820789337, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.0240241289138794}, {""feature"": ""HeartRate_6hours"", ""value"": 106.0, ""shap"": 0.5739275813102722}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 11.0, ""shap"": 0.5544986128807068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.11215238273143768}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.05731942132115364}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 3.000000000000009, ""shap"": -1.3331882953643799}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 25.0, ""shap"": -0.535804271697998}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.42841073870658875}, {""feature"": ""Creatinine"", ""value"": 0.49230769230769245, ""shap"": -0.36567190289497375}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.6, ""shap"": -0.23041030764579773}]}","Probabilitas Prediksi: 23,46%
+
+Fitur Pendorong (Positif):
+- Ageyears: 65,0
+- HeartRate_6hours: 106,0
+- IVfluids_requirement_first_24hrs: 11,0
+- CerebrovascularaccidentsCVA: 0,0
+- O2saturation_6hours: 98,0
+
+Fitur Penurun (Negatif):
+- TemperatureT_6hours: 3,0
+- RespiratoryRate_6hours: 25,0
+- O2_saturation_Upon_presentation_ED: -0,5714
+- Creatinine: 0,4923
+- Temperature_Upon_presentation_ED: 37,6","Analysis of Model Failure (False Negative):  
+The model's false negative prediction for cancer likely stems from sepsis-induced physiological alterations that mask oncological markers. Hypothermia (TemperatureT_6hours: 3.0) and tachypnea (RespiratoryRate_6hours: 25.0) reflect immunosuppressed sepsis in cancer patients, where tumor burden suppresses thermogenesis and cytokine release. Elevated creatinine (0.4923) and low O2 saturation upon presentation (-0.5714) indicate sepsis-driven organ dysfunction, overriding cancer-specific features (e.g., age >65, tachycardia). The model prioritizes sepsis-related features over oncological risk due to training data bias toward febrile cancer presentations, resulting in underestimation of malignancy.  
+
+Disclaimer:  
+This analysis is an AI-generated interpretation and does not replace clinical judgment."
+58,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.259272962808609, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 108.0, ""shap"": 0.7504772543907166}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.4576931297779083}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3397447168827057}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.12500000000000222, ""shap"": 0.14484812319278717}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.13386422395706177}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.2, ""shap"": -1.219091534614563}, {""feature"": ""Hemoglobin"", ""value"": 11.4, ""shap"": -0.5487853288650513}, {""feature"": ""Creatinine"", ""value"": 2.2153846153846155, ""shap"": -0.5009930729866028}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.3401971459388733}, {""feature"": ""Hematocrit"", ""value"": 33.0, ""shap"": -0.3269422948360443}]}","Probabilitas Prediksi: 25,9%
+
+Fitur Pendorong (Positif):
+- HeartRate_6hours: 108,0
+- O2_saturation_Upon_presentation_ED: 0,571
+- IVfluids_requirement_first_24hrs: 6,0
+- TemperatureT_6hours: -0,125
+- CerebrovascularaccidentsCVA: 0,0
+
+Fitur Penurun (Negatif):
+- Temperature_Upon_presentation_ED: 39,2
+- Hemoglobin: 11,4
+- Creatinine: 2,215
+- Ageyears: 75,0
+- Hematocrit: 33,0","Analisis Kegagalan Model (False Negative):  
+Penalaran Klinis Fisiologis:  
+Gejala sepsis (HR 108, SpO₂ 57,1%, kebutuhan cairan 6 L) pada pasien kanker mengindikasikan respons imun berlebihan akibat metastasis. Model XGBoost menganggap pola ini sebagai indikator non-kanker karena pelatihan data dominan pada pasien tanpa kanker dengan sepsis ringan. Namun, kanker yang menyebabkan sepsis (misalnya, metastasis ke paru) menghasilkan anemia (Hb 11,4) dan kreatinin tinggi (2,215), yang tidak terdeteksi model akibat keterbatasan data pelatihan pada interaksi kanker-sepsis. Demam (39,2°C) juga berkontribusi pada kegagalan prediksi karena model tidak mempertimbangkan demam sebagai komplikasi kanker.  
+
+Disclaimer:  
+Ini adalah analisis AI dan tidak menggantikan keputusan klinis."

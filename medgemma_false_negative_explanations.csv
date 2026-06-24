@@ -1,0 +1,447 @@
+index,structured_data,xai_strict_translation,clinical_reasoning
+2,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.10198119282722473, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.8681743144989014}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.4113718867301941}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.19078819453716278}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12062226235866547}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.09049800038337708}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 76.0, ""shap"": -1.8064512014389038}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.3, ""shap"": -0.8867283463478088}, {""feature"": ""Hemoglobin"", ""value"": 10.9, ""shap"": -0.4965474009513855}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.4520248472690582}, {""feature"": ""Hematocrit"", ""value"": 31.0, ""shap"": -0.13530641794204712}]}","Tentu, berikut terjemahannya:
+
+Probabilitas Prediksi: 0.10198119282722473
+
+Fitur Pendorong (Positif):
+*   Ageyears: 65.0
+*   IVfluids_requirement_first_24hrs: 6.0
+*   RespiratoryRate_6hours: 18.0
+*   CerebrovascularaccidentsCVA: 0.0
+*   DM: 0.0
+
+Fitur Penurun (Negatif):
+*   HeartRate_6hours: 76.0
+*   Temperature_Upon_presentation_ED: 39.3
+*   Hemoglobin: 10.9
+*   O2_saturation_Upon_presentation_ED: -0.14285714285714285
+*   Hematocrit: 31.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien yang mengalami sepsis, kemungkinan karena pola tanda-tanda vital yang tidak spesifik.
+
+*   **Fitur Pendorong (Positif):**
+    *   **Ageyears (65.0):** Usia lanjut dapat meningkatkan risiko sepsis dan komplikasi, tetapi tidak secara spesifik mengindikasikan onkologi.
+    *   **IVfluids_requirement_first_24hrs (6.0):** Kebutuhan cairan tinggi menunjukkan respons inflamasi yang signifikan, umum pada sepsis, tetapi tidak spesifik untuk onkologi.
+    *   **RespiratoryRate_6hours (18.0):** Tachipnea (frekuensi pernapasan meningkat) adalah tanda umum sepsis, menunjukkan distress respiratorik, tetapi tidak spesifik untuk onkologi.
+    *   **CerebrovascularaccidentsCVA (0.0):** Riwayat CVA tidak relevan langsung dengan sepsis atau onkologi.
+    *   **DM (0.0):** Diabetes Mellitus adalah faktor risiko sepsis, tetapi tidak spesifik untuk onkologi.
+
+*   **Fitur Penurun (Negatif):**
+    *   **HeartRate_6hours (76.0):** Meskipun frekuensi jantung meningkat (tachycardia) sering terjadi pada sepsis, nilai ini tidak terlalu tinggi dan bisa terjadi pada berbagai kondisi.
+    *   **Temperature_Upon_presentation_ED (39.3):** Hipertermia (suhu tinggi) adalah tanda klasik sepsis, menunjukkan respons inflamasi sistemik.
+    *   **Hemoglobin (10.9):** Anemia ringan bisa terjadi pada sepsis atau pada pasien onkologi karena berbagai alasan (misalnya, perdarahan, efek kemoterapi), tetapi tidak spesifik.
+    *   **O2_saturation_Upon_presentation_ED (-0.14285714285714285):** Saturasi oksigen yang sedikit rendah bisa terjadi pada sepsis karena hipoksia atau respons inflamasi, tetapi tidak spesifik untuk onkologi.
+    *   **Hematocrit (31.0):** Hematokrit normal hingga sedikit rendah, tidak secara spesifik mengindikasikan onkologi atau sepsis.
+
+**Kaitan dengan Respons Imun/Kanker:**
+
+Pada pasien onkologi, sepsis dapat memicu respons imun yang kuat dan abnormal, yang mungkin menghasilkan tanda-tanda vital yang tidak spesifik atau bahkan ""menyamar"" (masking) tanda-tanda yang lebih spesifik untuk onkologi. Misalnya, sepsis dapat menyebabkan perubahan pada tanda-tanda vital yang mirip dengan yang terlihat pada pasien onkologi yang tidak mengalami sepsis.
+
+**Kesimpulan:**
+
+Pola tanda-tanda vital yang tidak spesifik ini, meskipun konsisten dengan sepsis, tidak cukup untuk membedakan antara sepsis pada pasien onkologi dan kondisi onkologi itu sendiri. Model XGBoost, yang dilatih pada data yang mungkin tidak mencerminkan variasi klinis yang luas, gagal mengidentifikasi riwayat onkologi pasien.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data fisiologis dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis yang berpengalaman."
+10,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1504576951265335, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 141.0, ""shap"": 0.7279319167137146}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.6955609321594238}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 33.0, ""shap"": 0.15373283624649048}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.10091337561607361}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.08700694143772125}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.3058720827102661}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.6189898252487183}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.46363312005996704}, {""feature"": ""Hemoglobin"", ""value"": 11.0, ""shap"": -0.4634642004966736}, {""feature"": ""Hematocrit"", ""value"": 32.0, ""shap"": -0.30696728825569153}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.1504576951265335
+
+Fitur Pendorong (Positif):
+*   HeartRate_6hours: 141.0
+*   Temperature_Upon_presentation_ED: 36.7
+*   CAD: 0.0
+
+Fitur Penurun (Negatif):
+*   CerebrovascularaccidentsCVA: 1.0
+*   O2_saturation_Upon_presentation_ED: -0.5714285714285714
+*   Ageyears: 75.0
+*   Hemoglobin: 11.0
+*   Hematocrit: 32.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien yang mengalami sepsis, kemungkinan karena pola tanda-tanda vital yang tidak spesifik.
+
+*   **Fitur Pendorong (Positif):**
+    *   **HeartRate_6hours (141 bpm):** Tachycardia ini dapat terjadi pada sepsis karena respons stres fisiologis dan peningkatan kebutuhan oksigen. Namun, pada pasien onkologi, ini juga bisa menjadi manifestasi dari kondisi terkait kanker atau efek samping pengobatan.
+    *   **Temperature_Upon_presentation_ED (36.7°C):** Hipertermia ringan pada sepsis adalah respons inflamasi. Meskipun pada pasien onkologi, ini bisa juga disebabkan oleh infeksi sekunder atau efek samping terapi.
+    *   **CAD (0.0):** Ketiadaan penyakit arteri koroner tidak secara langsung mengindikasikan atau menyingkirkan onkologi.
+
+*   **Fitur Penurun (Negatif):**
+    *   **CerebrovascularaccidentsCVA (1.0):** Riwayat CVA pada pasien onkologi dapat meningkatkan risiko komplikasi sepsis dan mempengaruhi respons fisiologis.
+    *   **O2_saturation_Upon_presentation_ED (-0.57):** Hipoksia atau hipoksia ringan pada sepsis adalah respons kompensasi. Pada pasien onkologi, ini bisa terkait dengan penyakit paru obstruktif kronis (PPOK) yang sering dikaitkan dengan kanker, atau efek samping kemoterapi.
+    *   **Ageyears (75.0):** Usia lanjut meningkatkan risiko sepsis dan komplikasi terkait onkologi.
+    *   **Hemoglobin (11.0 g/dL) & Hematocrit (32%):** Anemia ringan pada sepsis dapat terjadi karena kehilangan darah atau efek inflamasi. Pada pasien onkologi, anemia bisa disebabkan oleh penyakit kronis, defisiensi nutrisi, atau efek samping pengobatan.
+
+**Kesimpulan:** Tanda-tanda vital ini, meskipun relevan dengan sepsis, tidak cukup spesifik untuk membedakan antara sepsis pada pasien onkologi dan sepsis pada pasien non-onkologi. Model gagal memanfaatkan informasi kontekstual riwayat onkologi yang relevan dengan respons fisiologis ini.
+
+**Disclaimer:** Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
+14,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.09150657802820206, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.6792293190956116}, {""feature"": ""Creatinine"", ""value"": -0.5538461538461538, ""shap"": 0.5713496208190918}, {""feature"": ""HeartRate_6hours"", ""value"": 120.0, ""shap"": 0.4126686155796051}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.27499449253082275}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.12736375629901886}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 2.625000000000011, ""shap"": -1.5133693218231201}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 3.0, ""shap"": -0.6352596879005432}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.42857142857142855, ""shap"": -0.6291462779045105}, {""feature"": ""Hematocrit"", ""value"": 34.0, ""shap"": -0.5165587067604065}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.38125455379486084}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.0915
+
+Fitur Pendorong (Positif):
+*   Temperature_Upon_presentation_ED: 36.5
+*   Creatinine: -0.5538
+*   HeartRate_6hours: 120.0
+*   RespiratoryRate_6hours: 18.0
+*   CerebrovascularaccidentsCVA: 0.0
+
+Fitur Penurun (Negatif):
+*   TemperatureT_6hours: 2.625
+*   IVfluids_requirement_first_24hrs: 3.0
+*   O2_saturation_Upon_presentation_ED: -0.4286
+*   Hematocrit: 34.0
+*   Ageyears: 75.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi kondisi onkologi pasien yang mengalami sepsis karena pola tanda-tanda vital dan fisiologisnya ""mengelabui"" model.
+
+1.  **Pendorong Dominan (Positif):**
+    *   **HeartRate_6hours (120.0):** Tachycardia (denyut jantung cepat) umum pada sepsis, tetapi juga bisa terkait dengan kondisi onkologi atau stres.
+    *   **Temperature_Upon_presentation_ED (36.5):** Meskipun tidak tinggi, suhu yang sedikit meningkat bisa menandakan respons inflamasi pada sepsis, tetapi juga bisa terjadi pada beberapa jenis kanker atau infeksi sekunder.
+    *   **Creatinine (-0.5538):** Penurunan kreatinin bisa menunjukkan penurunan fungsi ginjal akibat sepsis, tetapi juga bisa terkait dengan kondisi onkologi atau efek samping pengobatan.
+
+2.  **Penurun Dominan (Negatif):**
+    *   **TemperatureT_6hours (2.625):** Penurunan suhu (hipotermia) bisa terjadi pada sepsis karena respons sistemik, tetapi juga bisa menjadi tanda dari kondisi onkologi tertentu (misalnya, terkait dengan sistem imun atau efek samping terapi).
+    *   **IVfluids_requirement_first_24hrs (3.0):** Kebutuhan cairan tinggi pada sepsis menunjukkan respons inflamasi dan perdarahan, tetapi juga bisa terkait dengan kondisi onkologi yang mempengaruhi hemodinamik atau nutrisi.
+    *   **O2_saturation_Upon_presentation_ED (-0.4286):** Penurunan saturasi oksigen bisa disebabkan oleh sepsis (hipoksia), tetapi juga bisa terkait dengan kondisi onkologi yang mempengaruhi fungsi paru-paru atau hemodinamik.
+    *   **Hematocrit (34.0):** Hematokrit normal atau sedikit rendah bisa terjadi pada sepsis, tetapi juga bisa terkait dengan kondisi onkologi (misalnya, anemia terkait kanker atau efek samping).
+    *   **Ageyears (75.0):** Usia lanjut meningkatkan risiko sepsis dan kondisi onkologi, tetapi tidak secara spesifik mengelabui model dalam konteks ini.
+
+**Kesimpulan:** Pola tanda-tanda vital yang menunjukkan respons inflamasi dan hemodinamik sepsis (tachycardia, sedikit peningkatan suhu, penurunan kreatinin, kebutuhan cairan tinggi, penurunan saturasi oksigen) dapat terjadi pada pasien onkologi yang mengalami sepsis. Model XGBoost, yang mungkin lebih fokus pada pola sepsis akut, gagal mengintegrasikan atau menimbang kontribusi fitur-fitur ini dalam konteks riwayat onkologi pasien, sehingga menghasilkan prediksi false negative.
+
+**Disclaimer:** Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
+30,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.24843855202198029, ""top_positive"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.5, ""shap"": 0.8958047032356262}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.66261225938797}, {""feature"": ""HeartRate_6hours"", ""value"": 92.0, ""shap"": 0.6295403838157654}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.5, ""shap"": 0.35210299491882324}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.16862373054027557}], ""top_negative"": [{""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 1.0, ""shap"": -1.209410548210144}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.8590721487998962}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.5718608498573303}, {""feature"": ""Hemoglobin"", ""value"": 11.9, ""shap"": -0.35676535964012146}, {""feature"": ""Hematocrit"", ""value"": 37.0, ""shap"": -0.3010943531990051}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.24843855202198029
+
+Fitur Pendorong (Positif):
+*   Temperature_Upon_presentation_ED: 36.5
+*   Creatinine: -0.18461538461538451
+*   HeartRate_6hours: 92.0
+*   TemperatureT_6hours: -0.5
+*   O2saturation_6hours: 98.0
+
+Fitur Penurun (Negatif):
+*   CerebrovascularaccidentsCVA: 1.0
+*   Ageyears: 85.0
+*   IVfluids_requirement_first_24hrs: 2.0
+*   Hemoglobin: 11.9
+*   Hematocrit: 37.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi kondisi onkologi pasien yang mengalami sepsis karena pola tanda-tanda vital dan fisiologisnya ""mengelabui"" model.
+
+1.  **Pendorong Dominan (Positif):**
+    *   **Temperature_Upon_presentation_ED:** Meskipun tidak tinggi, suhu 36.5°C bisa menjadi tanda awal atau non-spesifik pada sepsis, terutama pada pasien lanjut usia.
+    *   **Creatinine:** Penurunan ringan (0.1846) bisa menandakan penurunan fungsi ginjal, yang umum terjadi pada sepsis atau kondisi medis lain.
+    *   **HeartRate_6hours:** Tingkat 92 bpm bisa dianggap normal atau sedikit meningkat, namun dalam konteks sepsis, peningkatan signifikan seringkali menjadi indikator penting.
+    *   **TemperatureT_6hours:** Penurunan suhu (-0.5) bisa terjadi pada sepsis, terutama pada pasien lanjut usia, karena penurunan respons imun.
+    *   **O2saturation_6hours:** 98% menunjukkan saturasi oksigen yang baik, namun ini tidak selalu mencerminkan status pernapasan global atau adanya masalah lain.
+
+2.  **Penurun Dominan (Negatif):**
+    *   **CerebrovascularaccidentsCVA:** Nilai 1.0 (atau 100%) menunjukkan tidak ada riwayat CVA, yang mungkin tidak relevan secara langsung dengan sepsis onkologi, tetapi bisa menjadi faktor risiko umum.
+    *   **Ageyears:** Usia 85 tahun adalah faktor risiko signifikan untuk sepsis dan juga untuk manifestasi onkologi yang lebih agresif.
+    *   **IVfluids_requirement_first_24hrs:** Kebutuhan cairan 2.0 menunjukkan respons awal terhadap dehidrasi atau sepsis, yang bisa terjadi pada berbagai kondisi.
+    *   **Hemoglobin:** 11.9 g/dL menunjukkan anemia ringan, yang umum pada pasien onkologi dan bisa memperburuk respons imun.
+    *   **Hematocrit:** 37% berada dalam rentang normal, namun bisa sedikit menurun pada sepsis.
+
+**Kaitan dengan Respons Imun dan Kondisi Kanker:**
+
+Pada pasien onkologi yang mengalami sepsis, respons imun seringkali terganggu (imunosenesitas). Gejala sepsis (seperti demam/penurunan suhu, peningkatan denyut jantung, penurunan fungsi ginjal) bisa jadi respons imun yang abnormal terhadap infeksi atau bahkan terhadap proses tumor itu sendiri. Sepsis pada pasien onkologi seringkali lebih parah dan sulit diobati.
+
+Pola tanda-tanda vital yang ""normal"" atau non-spesifik (seperti saturasi O2 yang baik, denyut jantung yang tidak terlalu tinggi) bisa terjadi karena mekanisme kompensasi yang efisien pada pasien lanjut usia atau karena respons imun yang terganggu yang tidak lagi menghasilkan tanda-tanda klasik sepsis.
+
+**Kesimpulan:**
+
+Model XGBoost mungkin tidak cukup sensitif untuk mendeteksi sepsis pada pasien onkologi dengan respons imun yang terganggu atau pada pasien lanjut usia, di mana tanda-tanda klasik sepsis bisa jadi tidak jelas atau termasker oleh kondisi medis dasar lainnya.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini adalah interpretasi AI dan tidak menggantikan penilaian klinis oleh profesional medis."
+31,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.1108020767569542, ""top_positive"": [{""feature"": ""Hemoglobin"", ""value"": 8.9, ""shap"": 0.46977853775024414}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 36.7, ""shap"": 0.37154319882392883}, {""feature"": ""Hematocrit"", ""value"": 28.0, ""shap"": 0.30281540751457214}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 12.0, ""shap"": 0.28044095635414124}, {""feature"": ""DM"", ""value"": 0.0, ""shap"": 0.1840236634016037}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 70.0, ""shap"": -1.6705442667007446}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -1.2819945812225342}, {""feature"": ""Creatinine"", ""value"": 1.7846153846153845, ""shap"": -0.9231255650520325}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 1.0, ""shap"": -0.1772008091211319}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": -0.08670824766159058}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.1108
+
+Fitur Pendorong (Positif):
+*   Hemoglobin: 8.9
+*   Temperature_Upon_presentation_ED: 36.7
+*   Hematocrit: 28.0
+*   RespiratoryRate_6hours: 12.0
+*   DM: 0.0
+
+Fitur Penurun (Negatif):
+*   HeartRate_6hours: 70.0
+*   Ageyears: 85.0
+*   Creatinine: 1.7846
+*   IVfluids_requirement_first_24hrs: 1.0
+*   O2saturation_6hours: 100.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi kondisi onkologi pasien yang mengalami sepsis karena pola tanda-tanda vital dan fisiologisnya ""mengelabui"" model.
+
+1.  **Hemoglobin Rendah (8.9 g/dL):** Meskipun sering dikaitkan dengan anemia, pada pasien onkologi, hemoglobin rendah bisa menjadi tanda infiltrasi tumor atau efek samping kemoterapi, yang dapat mengganggu respons imun dan meningkatkan risiko sepsis.
+2.  **Hematocrit Rendah (28.0%):** Mirip dengan hemoglobin, ini bisa mencerminkan anemia terkait onkologi atau perdarahan, yang dapat memengaruhi kemampuan sistem kekebalan tubuh untuk melawan infeksi.
+3.  **Respiratory Rate Normal (12.0 per menit):** Meskipun sepsis sering menyebabkan takipnea (frekuensi pernapasan meningkat), pada pasien dengan penyakit paru obstruktif kronis (PPOK) atau kondisi lain yang sudah ada, frekuensi pernapasan normal mungkin tidak menunjukkan tanda-tanda sepsis yang jelas.
+4.  **Heart Rate Normal (70.0 per menit):** Sepsis biasanya menyebabkan takikardia (frekuensi jantung meningkat). Namun, pada pasien lanjut usia (85 tahun) atau dengan kondisi kardiovaskular yang sudah ada, denyut jantung normal mungkin tidak mencerminkan respons imun yang terganggu.
+5.  **Creatinine Meningkat (1.7846 mg/dL):** Peningkatan kreatinin menunjukkan penurunan fungsi ginjal, yang bisa terjadi pada sepsis atau pada pasien onkologi karena efek kemoterapi atau penyakit ginjal.
+6.  **IV Fluids Normal (1.0):** Kebutuhan cairan normal mungkin tidak menunjukkan tingkat keparahan sepsis yang signifikan, terutama jika pasien sudah menerima cairan sebelumnya atau memiliki kondisi yang memengaruhi retensi cairan.
+7.  **O2 Saturation Normal (100.0%):** Saturasi oksigen normal tidak selalu berarti tidak ada masalah pernapasan; pada pasien dengan penyakit paru kronis, ini bisa menjadi normal meskipun ada stres pernapasan.
+
+Secara keseluruhan, tanda-tanda vital yang ""normal"" atau tidak terlalu ekstrem pada pasien onkologi yang mengalami sepsis dapat mengaburkan gambaran klinis dan membuat model AI, yang dilatih pada data yang lebih umum, gagal mengidentifikasi kondisi onkologi yang mendasarinya.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
+32,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.01421470008790493, ""top_positive"": [{""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -1.5714285714285714, ""shap"": 0.5212131142616272}, {""feature"": ""Potassium"", ""value"": 5.4, ""shap"": 0.09906574338674545}, {""feature"": ""O2saturation_6hours"", ""value"": 100.0, ""shap"": 0.09053236991167068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.067720428109169}, {""feature"": ""CAD"", ""value"": 0.0, ""shap"": 0.03261268883943558}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.4, ""shap"": -1.0075851678848267}, {""feature"": ""Creatinine"", ""value"": 1.169230769230769, ""shap"": -0.7803329229354858}, {""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.7740013003349304}, {""feature"": ""Ageyears"", ""value"": 85.0, ""shap"": -0.7187708020210266}, {""feature"": ""HeartRate_6hours"", ""value"": 82.0, ""shap"": -0.5593229532241821}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.0142
+
+Fitur Pendorong (Positif):
+*   O2_saturation_Upon_presentation_ED: -1.5714
+*   Potassium: 5.4
+*   O2saturation_6hours: 100.0
+*   CerebrovascularaccidentsCVA: 0.0
+*   CAD: 0.0
+
+Fitur Penurun (Negatif):
+*   Temperature_Upon_presentation_ED: 39.4
+*   Creatinine: 1.1692
+*   TemperatureT_6hours: 1.625
+*   Ageyears: 85.0
+*   HeartRate_6hours: 82.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien, meskipun ia memprediksi sepsis. Hal ini kemungkinan disebabkan oleh beberapa faktor fisiologis yang ""mengelabui"" model:
+
+1.  **Sepsis dan Kanker:** Sepsis dapat memicu atau memperburuk respons imun yang abnormal, yang dapat menutupi atau mengubah tanda-tanda yang khas dari kanker.
+2.  **Oksigenasi:** Meskipun O2_saturation_Upon_presentation_ED (98%) tampak baik, sepsis dapat menyebabkan hipoksia yang tidak terdeteksi oleh saturasi oksigen saja.
+3.  **Potassium:** Tingkat kalium yang sedikit meningkat (5.4) bisa menjadi tanda stres metabolik atau gangguan ginjal, yang umum terjadi pada sepsis, tetapi tidak spesifik untuk kanker.
+4.  **Suhu:** Suhu tinggi (39.4°C) pada saat masuk adalah tanda sepsis, tetapi tidak spesifik untuk kanker.
+5.  **Kreatinin:** Kreatinin yang sedikit meningkat (1.1692) menunjukkan potensi gangguan fungsi ginjal, yang bisa terjadi pada sepsis atau kondisi kronis lainnya, termasuk kanker.
+6.  **Usia:** Usia yang tinggi (85 tahun) meningkatkan risiko sepsis dan kondisi kronis, tetapi tidak secara langsung mengindikasikan kanker.
+7.  **Detak Jantung:** Detak jantung yang sedikit meningkat (82 bpm) pada 6 jam menunjukkan respons terhadap sepsis, tetapi tidak spesifik untuk kanker.
+
+Kombinasi tanda-tanda sepsis (suhu tinggi, detak jantung meningkat) dengan faktor yang tidak spesifik untuk kanker (potassium sedikit meningkat, kreatinin sedikit meningkat, usia tinggi) membuat model kesulitan membedakan antara sepsis akibat infeksi umum dan sepsis yang terkait dengan kondisi onkologi yang tersembunyi.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini adalah interpretasi AI dan tidak menggantikan penilaian klinis oleh profesional medis."
+33,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.15991643071174622, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.1725165843963623}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.6656238436698914}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.24999999999999556, ""shap"": 0.16591142117977142}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 18.0, ""shap"": 0.1093570664525032}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1084824651479721}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 73.0, ""shap"": -1.9689861536026}, {""feature"": ""Creatinine"", ""value"": 3.8769230769230774, ""shap"": -0.640989363193512}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 2.0, ""shap"": -0.4386214315891266}, {""feature"": ""Hematocrit"", ""value"": 36.0, ""shap"": -0.41667452454566956}, {""feature"": ""Hemoglobin"", ""value"": 12.2, ""shap"": -0.19267487525939941}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.1599
+
+Fitur Pendorong (Positif):
+*   Ageyears: 65.0
+*   O2_saturation_Upon_presentation_ED: 0.5714
+*   TemperatureT_6hours: -0.2499
+*   RespiratoryRate_6hours: 18.0
+*   CerebrovascularaccidentsCVA: 0.0
+
+Fitur Penurun (Negatif):
+*   HeartRate_6hours: 73.0
+*   Creatinine: 3.877
+*   IVfluids_requirement_first_24hrs: 2.0
+*   Hematocrit: 36.0
+*   Hemoglobin: 12.2","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien, meskipun ia memprediksi sepsis. Hal ini kemungkinan disebabkan oleh **overfitting** pada data sepsis dan **underfitting** pada data onkologi, atau **misalignment** antara fitur yang digunakan dan karakteristik spesifik pasien kanker.
+
+*   **O2_saturation_Upon_presentation_ED (0.5714):** Penurunan saturasi oksigen ini, meskipun bisa terjadi pada sepsis, juga merupakan tanda umum pada pasien kanker yang mengalami emboli paru atau hipoksia akibat penyakit paru obstruktif kronis (PPOK) yang sering dikaitkan dengan onkologi.
+*   **TemperatureT_6hours (-0.2499):** Meskipun penurunan suhu bisa menandakan sepsis, pada pasien kanker, infeksi sekunder atau reaksi inflamasi akibat tumor bisa juga menyebabkan penurunan suhu.
+*   **HeartRate_6hours (73.0):** Tachycardia (kecepatan jantung meningkat) adalah respons umum pada sepsis. Namun, pada pasien kanker, respons ini bisa juga dipengaruhi oleh nyeri, anemia, atau efek samping pengobatan.
+*   **Creatinine (3.877):** Peningkatan kreatinin menunjukkan penurunan fungsi ginjal, yang bisa terjadi pada sepsis (sepsis ginjal) atau pada pasien kanker akibat penyakit ginjal terkait atau efek samping kemoterapi.
+*   **IVfluids_requirement_first_24hrs (2.0):** Kebutuhan cairan tinggi pada sepsis menunjukkan respons inflamasi yang kuat. Namun, pada pasien kanker, ini bisa juga disebabkan oleh malnutrisi, kehilangan cairan akibat mual/muntah, atau efek samping pengobatan.
+*   **Hematocrit (36.0) & Hemoglobin (12.2):** Anemia (hematokrit rendah dan hemoglobin rendah) umum pada pasien kanker dan bisa juga terjadi pada sepsis akibat kehilangan darah atau malnutrisi.
+
+Kombinasi fitur-fitur ini, yang sering terlihat pada sepsis, dapat **menyamar** sebagai respons fisiologis pada pasien kanker yang mengalami sepsis. Model mungkin tidak cukup spesifik untuk membedakan antara respons sepsis umum dan respons yang dipengaruhi oleh kondisi onkologi pasien.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
+41,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08910577744245529, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 0.9358273148536682}, {""feature"": ""HeartRate_6hours"", ""value"": 107.0, ""shap"": 0.6936783194541931}, {""feature"": ""Potassium"", ""value"": 48.0, ""shap"": 0.18136408925056458}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.10494783520698547}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.07149428874254227}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 1.625000000000011, ""shap"": -0.8554013967514038}, {""feature"": ""Creatinine"", ""value"": 0.676923076923077, ""shap"": -0.7969745993614197}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 38.2, ""shap"": -0.7140799760818481}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.0, ""shap"": -0.5434844493865967}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 4.0, ""shap"": -0.40927207469940186}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.0891
+
+Fitur Pendorong (Positif):
+*   Ageyears: 65.0
+*   HeartRate_6hours: 107.0
+*   Potassium: 48.0
+*   CerebrovascularaccidentsCVA: 0.0
+*   O2saturation_6hours: 98.0
+
+Fitur Penurun (Negatif):
+*   TemperatureT_6hours: 1.625
+*   Creatinine: 0.6769
+*   Temperature_Upon_presentation_ED: 38.2
+*   O2_saturation_Upon_presentation_ED: 0.0
+*   IVfluids_requirement_first_24hrs: 4.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien, meskipun ia memprediksi sepsis. Hal ini kemungkinan disebabkan oleh **overfitting** pada data sepsis dan **underfitting** pada data onkologi, atau **misalignment** antara fitur yang digunakan dan karakteristik spesifik pasien kanker.
+
+*   **Fitur Pendorong (Positif):**
+    *   **Ageyears (65.0):** Usia lanjut dapat meningkatkan risiko sepsis, tetapi juga umum pada pasien onkologi.
+    *   **HeartRate_6hours (107.0):** Tachycardia adalah respons umum pada sepsis, tetapi juga bisa terjadi pada pasien onkologi karena berbagai faktor (misalnya, nyeri, dehidrasi, efek samping terapi).
+    *   **Potassium (48.0):** Hiperkalemia bisa terjadi pada sepsis (misalnya, karena gagal ginjal atau perdarahan) atau pada pasien onkologi (misalnya, karena efek samping kemoterapi atau penyakit ginjal).
+    *   **O2saturation_6hours (98.0):** Saturasi oksigen normal tidak secara spesifik mengindikasikan sepsis atau onkologi, meskipun hipoksia bisa menjadi tanda sepsis.
+
+*   **Fitur Penurun (Negatif):**
+    *   **TemperatureT_6hours (1.625):** Suhu normal tidak mengeliminasi sepsis, terutama pada pasien yang sudah menerima antipyretik atau memiliki kondisi lain.
+    *   **Creatinine (0.6769):** Kreatinin normal tidak sepenuhnya menyingkirkan sepsis, terutama jika terjadi penurunan fungsi ginjal akut (AKI) yang belum terdeteksi atau pada pasien dengan riwayat ginjal yang buruk.
+    *   **Temperature_Upon_presentation_ED (38.2):** Demam pada saat presentasi adalah tanda sepsis yang kuat, tetapi mungkin tidak terdeteksi atau tidak dianggap signifikan oleh model jika tidak dibandingkan dengan data historis atau jika pasien sudah menerima antipyretik.
+    *   **O2_saturation_Upon_presentation_ED (0.0):** Saturasi oksigen normal pada saat presentasi tidak mengindikasikan sepsis.
+    *   **IVfluids_requirement_first_24hrs (4.0):** Kebutuhan cairan normal tidak secara spesifik mengindikasikan sepsis, meskipun bisa menjadi tanda dehidrasi atau respons terhadap sepsis.
+
+**Kaitan dengan Respons Imun dan Kondisi Klinis:**
+
+Pasien onkologi seringkali memiliki **respons imun yang terganggu** (misalnya, akibat kemoterapi atau penyakit primer) yang dapat membuat mereka lebih rentan terhadap infeksi dan sepsis. Selain itu, **manifestasi klinis sepsis** pada pasien onkologi mungkin **berbeda** atau **kurang khas** dibandingkan dengan pasien sehat. Misalnya, demam mungkin tidak selalu hadir, atau tanda-tanda seperti perubahan tingkat kesadaran bisa lebih sulit diinterpretasikan.
+
+**Kesimpulan:**
+
+Pola tanda-tanda vital yang ""normal"" atau tidak spesifik pada pasien onkologi yang mengalami sepsis dapat **mengelabui model** yang dilatih pada data sepsis yang dominan. Model mungkin tidak cukup fleksibel untuk mengakomodasi variasi klinis yang signifikan antara pasien onkologi dan non-onkologi, atau mungkin tidak cukup kuat untuk mengidentifikasi fitur yang lebih halus yang menandakan onkologi di tengah kondisi sepsis.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini adalah representasi AI dan tidak menggantikan penilaian klinis oleh profesional medis."
+43,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.08818862587213516, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 55.0, ""shap"": 1.037327527999878}, {""feature"": ""Creatinine"", ""value"": -0.18461538461538451, ""shap"": 0.652049720287323}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3787826597690582}, {""feature"": ""Potassium"", ""value"": 5.0, ""shap"": 0.1336798071861267}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.1318213939666748}], ""top_negative"": [{""feature"": ""HeartRate_6hours"", ""value"": 80.0, ""shap"": -1.753333330154419}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.8, ""shap"": -0.7487594485282898}, {""feature"": ""Hematocrit"", ""value"": 38.0, ""shap"": -0.6736560463905334}, {""feature"": ""Hemoglobin"", ""value"": 12.8, ""shap"": -0.6704531908035278}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.14285714285714285, ""shap"": -0.5731009840965271}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.08818862587213516
+
+Fitur Pendorong (Positif):
+*   Ageyears: 55.0
+*   Creatinine: -0.18461538461538451
+*   IVfluids_requirement_first_24hrs: 6.0
+*   Potassium: 5.0
+*   CerebrovascularaccidentsCVA: 0.0
+
+Fitur Penurun (Negatif):
+*   HeartRate_6hours: 80.0
+*   Temperature_Upon_presentation_ED: 39.8
+*   Hematocrit: 38.0
+*   Hemoglobin: 12.8
+*   O2_saturation_Upon_presentation_ED: -0.14285714285714285","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien pada kasus sepsis ini, kemungkinan karena pola tanda-tanda vital yang tidak khas.
+
+*   **Fitur Pendorong (Positif):**
+    *   **Ageyears (55.0):** Usia ini dapat meningkatkan risiko sepsis, tetapi tidak spesifik untuk onkologi.
+    *   **Creatinine (-0.1846):** Penurunan kreatinin bisa terjadi pada sepsis karena penurunan fungsi ginjal, tetapi juga pada kondisi lain.
+    *   **IVfluids_requirement_first_24hrs (6.0):** Kebutuhan cairan tinggi menunjukkan respons inflamasi yang signifikan, umum pada sepsis, tetapi tidak spesifik untuk onkologi.
+    *   **Potassium (5.0):** Hiperkalemia bisa terjadi pada sepsis karena gangguan ginjal atau seluler, tetapi juga pada kondisi onkologi tertentu (misalnya, terkait dengan terapi).
+    *   **CerebrovascularaccidentsCVA (0.0):** Riwayat CVA tidak secara langsung terkait dengan onkologi atau sepsis, meskipun dapat menjadi faktor risiko umum.
+
+*   **Fitur Penurun (Negatif):**
+    *   **HeartRate_6hours (80.0):** Denyut jantung yang relatif rendah pada sepsis bisa terjadi karena respons kompensasi terhadap hipotensi atau sepsis, tetapi juga pada kondisi onkologi tertentu (misalnya, terkait dengan penyakit jantung atau terapi).
+    *   **Temperature_Upon_presentation_ED (39.8):** Hipertermia adalah tanda klasik sepsis, tetapi juga dapat terjadi pada kondisi onkologi tertentu (misalnya, terkait dengan infeksi atau tumor).
+    *   **Hematocrit (38.0):** Hematokrit normal atau sedikit rendah bisa terjadi pada sepsis karena hemokonstitusional, tetapi juga pada kondisi onkologi (misalnya, terkait dengan anemia atau terapi).
+    *   **Hemoglobin (12.8):** Hemoglobin normal atau sedikit rendah bisa terjadi pada sepsis, tetapi juga pada kondisi onkologi (misalnya, terkait dengan anemia atau terapi).
+    *   **O2_saturation_Upon_presentation_ED (-0.1428):** Penurunan saturasi oksigen bisa terjadi pada sepsis karena hipoksia, tetapi juga pada kondisi onkologi (misalnya, terkait dengan penyakit paru-paru atau terapi).
+
+**Kaitan dengan Respons Imun dan Kondisi Klinis Kanker:**
+
+Pada pasien kanker yang mengalami sepsis, respons imun yang abnormal dan perubahan fisiologis dapat terjadi. Sepsis dapat memicu atau memperburuk kondisi onkologi, dan sebaliknya. Gejala sepsis (seperti demam, perubahan denyut jantung, dan tanda-tanda vital lainnya) dapat tumpang tindih dengan manifestasi klinis dari penyakit onkologi itu sendiri atau efek samping pengobatannya. Model AI, yang dilatih pada data yang mungkin tidak mencerminkan variasi ini, dapat kesulitan membedakan antara respons sepsis dan manifestasi onkologi.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini adalah representasi AI dan tidak menggantikan penilaian klinis oleh profesional medis."
+46,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.23455090820789337, ""top_positive"": [{""feature"": ""Ageyears"", ""value"": 65.0, ""shap"": 1.0240241289138794}, {""feature"": ""HeartRate_6hours"", ""value"": 106.0, ""shap"": 0.5739275813102722}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 11.0, ""shap"": 0.5544986128807068}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.11215238273143768}, {""feature"": ""O2saturation_6hours"", ""value"": 98.0, ""shap"": 0.05731942132115364}], ""top_negative"": [{""feature"": ""TemperatureT_6hours"", ""value"": 3.000000000000009, ""shap"": -1.3331882953643799}, {""feature"": ""RespiratoryRate_6hours"", ""value"": 25.0, ""shap"": -0.535804271697998}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": -0.5714285714285714, ""shap"": -0.42841073870658875}, {""feature"": ""Creatinine"", ""value"": 0.49230769230769245, ""shap"": -0.36567190289497375}, {""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 37.6, ""shap"": -0.23041030764579773}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.23455
+
+Fitur Pendorong (Positif):
+*   Ageyears: 65.0
+*   HeartRate_6hours: 106.0
+*   IVfluids_requirement_first_24hrs: 11.0
+*   CerebrovascularaccidentsCVA: 0.0
+*   O2saturation_6hours: 98.0
+
+Fitur Penurun (Negatif):
+*   TemperatureT_6hours: 3.000000000000009
+*   RespiratoryRate_6hours: 25.0
+*   O2_saturation_Upon_presentation_ED: -0.5714285714285714
+*   Creatinine: 0.49230769230769245
+*   Temperature_Upon_presentation_ED: 37.6","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi riwayat onkologi pasien, meskipun ia memprediksi sepsis. Hal ini kemungkinan disebabkan oleh **overfitting** pada data sepsis dan **underfitting** pada data onkologi, atau **misalignment** antara fitur yang digunakan dan karakteristik spesifik pasien kanker.
+
+*   **Fitur Pendorong (Positif):**
+    *   **Ageyears (65.0):** Usia lanjut dapat meningkatkan risiko sepsis, tetapi juga umum pada pasien onkologi.
+    *   **HeartRate_6hours (106.0):** Tachycardia adalah respons umum pada sepsis, tetapi juga bisa terjadi pada pasien onkologi karena berbagai faktor (misalnya, nyeri, dehidrasi, efek samping terapi).
+    *   **IVfluids_requirement_first_24hrs (11.0):** Kebutuhan cairan tinggi menunjukkan respons inflamasi sepsis, tetapi juga bisa terkait dengan kondisi onkologi (misalnya, hidronefrosis, efek samping kemoterapi).
+    *   **O2saturation_6hours (98.0):** Saturasi oksigen normal pada saat pemeriksaan, tetapi bisa menurun drastis pada sepsis.
+
+*   **Fitur Penurun (Negatif):**
+    *   **TemperatureT_6hours (3.000000000000009):** Hipotermia ringan pada saat pemeriksaan bisa terjadi pada sepsis, tetapi juga bisa disebabkan oleh kondisi onkologi (misalnya, efek samping radioterapi, kondisi medis terkait kanker).
+    *   **RespiratoryRate_6hours (25.0):** Bradipnea ringan bisa terjadi pada sepsis, tetapi juga bisa terkait dengan kondisi onkologi (misalnya, efek samping kemoterapi, penyakit paru obstruktif kronis).
+    *   **O2_saturation_Upon_presentation_ED (-0.5714285714285714):** Saturasi oksigen yang rendah saat presentasi bisa menjadi tanda sepsis, tetapi juga bisa disebabkan oleh kondisi onkologi (misalnya, emboli paru, penyakit paru obstruktif kronis).
+    *   **Creatinine (0.49230769230769245):** Kreatinin normal pada saat pemeriksaan, tetapi bisa meningkat pada sepsis atau kondisi onkologi (misalnya, penyakit ginjal terkait kanker).
+    *   **Temperature_Upon_presentation_ED (37.6):** Suhu normal saat presentasi, tetapi bisa meningkat pada sepsis.
+
+**Kaitan dengan Respons Imun dan Kondisi Kanker:**
+
+Pasien onkologi seringkali memiliki **respons imun yang abnormal** (misalnya, imunosenesitas) yang dapat membuat mereka lebih rentan terhadap sepsis, tetapi juga dapat memengaruhi bagaimana tubuh mereka merespons tanda-tanda vital. Gejala sepsis (seperti demam, takikardia, hipoksemia) dapat **termasker atau disimilar** dengan gejala atau tanda-tanda yang terkait dengan kondisi onkologi itu sendiri.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
+58,"{""actual_label"": 1, ""predicted_label"": 0, ""probability_cancer"": 0.259272962808609, ""top_positive"": [{""feature"": ""HeartRate_6hours"", ""value"": 108.0, ""shap"": 0.7504772543907166}, {""feature"": ""O2_saturation_Upon_presentation_ED"", ""value"": 0.5714285714285714, ""shap"": 0.4576931297779083}, {""feature"": ""IVfluids_requirement_first_24hrs"", ""value"": 6.0, ""shap"": 0.3397447168827057}, {""feature"": ""TemperatureT_6hours"", ""value"": -0.12500000000000222, ""shap"": 0.14484812319278717}, {""feature"": ""CerebrovascularaccidentsCVA"", ""value"": 0.0, ""shap"": 0.13386422395706177}], ""top_negative"": [{""feature"": ""Temperature_Upon_presentation_ED"", ""value"": 39.2, ""shap"": -1.219091534614563}, {""feature"": ""Hemoglobin"", ""value"": 11.4, ""shap"": -0.5487853288650513}, {""feature"": ""Creatinine"", ""value"": 2.2153846153846155, ""shap"": -0.5009930729866028}, {""feature"": ""Ageyears"", ""value"": 75.0, ""shap"": -0.3401971459388733}, {""feature"": ""Hematocrit"", ""value"": 33.0, ""shap"": -0.3269422948360443}]}","Tentu, berikut adalah terjemahan data SHAP ke dalam kalimat deskriptif:
+
+Probabilitas Prediksi: 0.2593
+
+Fitur Pendorong (Positif):
+*   HeartRate_6hours: 108.0
+*   O2_saturation_Upon_presentation_ED: 0.5714
+*   IVfluids_requirement_first_24hrs: 6.0
+*   TemperatureT_6hours: -0.125
+*   CerebrovascularaccidentsCVA: 0.0
+
+Fitur Penurun (Negatif):
+*   Temperature_Upon_presentation_ED: 39.2
+*   Hemoglobin: 11.4
+*   Creatinine: 2.215
+*   Ageyears: 75.0
+*   Hematocrit: 33.0","**Analisis Kegagalan Model (False Negative):**
+
+**Penalaran Klinis Fisiologis:**
+
+Model XGBoost gagal mendeteksi kondisi onkologi pasien yang mengalami sepsis karena pola tanda-tanda vital dan fisiologisnya ""mengelabui"" model.
+
+1.  **HeartRate_6hours (108 bpm):** Meskipun peningkatan detak jantung bisa terjadi pada sepsis, nilai ini tidak cukup signifikan untuk menjadi fitur pendorong utama, terutama dibandingkan dengan tanda-tanda lain.
+2.  **O2_saturation_Upon_presentation_ED (57.14%):** Hipoksia akibat sepsis dapat menyebabkan peningkatan detak jantung dan respirasi, namun nilai ini mungkin tidak cukup spesifik untuk memicu deteksi onkologi.
+3.  **IVfluids_requirement_first_24hrs (6.0 L):** Kebutuhan cairan tinggi pada sepsis dapat terjadi pada berbagai kondisi, termasuk kanker yang mengalami komplikasi.
+4.  **TemperatureT_6hours (-0.125 C):** Perubahan suhu minor ini mungkin tidak cukup signifikan untuk menjadi fitur pendorong utama.
+5.  **CerebrovascularaccidentsCVA (0.0):** Tidak ada riwayat CVA yang dilaporkan.
+6.  **Temperature_Upon_presentation_ED (39.2 C):** Demam tinggi adalah tanda sepsis klasik, namun pada pasien onkologi, demam dapat disebabkan oleh infeksi sekunder atau reaksi inflamasi terkait kanker.
+7.  **Hemoglobin (11.4 g/dL):** Anemia ringan bisa terjadi pada sepsis atau pada pasien onkologi karena berbagai alasan (misalnya, perdarahan, malnutrisi, efek kemoterapi).
+8.  **Creatinine (2.215 mg/dL):** Peningkatan kreatinin menunjukkan penurunan fungsi ginjal, yang bisa terjadi pada sepsis (akibat hipotensi, sepsis-induced acute kidney injury) atau pada pasien onkologi (akibat penyakit ginjal, efek kemoterapi, atau komplikasi sepsis).
+9.  **Ageyears (75.0):** Usia lanjut meningkatkan risiko sepsis dan komplikasi terkait kanker.
+10. **Hematocrit (33.0%):** Hematokrit rendah bisa terjadi pada sepsis (akibat perdarahan atau kehilangan plasma) atau pada pasien onkologi (akibat anemia, efek kemoterapi).
+
+**Kaitan dengan Respons Imun dan Kondisi Klinis:**
+
+Pada pasien onkologi dengan sepsis, respons imun dapat terganggu atau tidak terkoordinasi. Demam (39.2 C) dan peningkatan detak jantung (108 bpm) adalah respons imun terhadap infeksi, tetapi pada konteks onkologi, mereka bisa juga merupakan respons terhadap inflamasi terkait kanker atau komplikasi. Anemia (Hb 11.4), peningkatan kreatinin (2.215), dan hematokrit rendah (33.0%) dapat terjadi pada sepsis atau pada kondisi onkologi itu sendiri, sehingga sulit membedakan penyebabnya. Kebutuhan cairan tinggi (6.0 L) dan hipoksia (SpO2 57.14%) adalah respons fisiologis umum pada sepsis.
+
+**Kesimpulan:**
+
+Kombinasi tanda-tanda sepsis (demam, peningkatan detak jantung, hipoksia, kebutuhan cairan tinggi) pada pasien onkologi dapat mengaburkan diagnosis. Model AI mungkin tidak cukup canggih untuk membedakan antara respons imun sepsis dan respons imun/fisiologis yang terkait dengan kondisi onkologi pasien, sehingga menghasilkan False Negative.
+
+**Disclaimer:**
+
+Analisis ini didasarkan pada data SHAP dan konteks kasus yang diberikan. Ini bukan pengganti penilaian klinis oleh profesional medis."
